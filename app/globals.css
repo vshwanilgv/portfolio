@@ -1,0 +1,338 @@
+@import "tailwindcss";
+
+/* ============================================
+   DESIGN SYSTEM - DARK MINIMALIST THEME
+   ============================================ */
+
+@theme {
+  /* === Color Palette === */
+  --color-background: #0f172a;
+  --color-surface: rgb(15 23 42 / 0.5);
+  --color-surface-hover: rgb(15 23 42 / 0.7);
+  
+  /* Accent Colors for Stats & Highlights */
+  --color-accent-blue: #3b82f6;
+  --color-accent-green: #22c55e;
+  --color-accent-yellow: #eab308;
+  --color-accent-cyan: #06b6d4;
+  
+  /* Text Colors */
+  --color-text-primary: #f1f5f9;
+  --color-text-secondary: #cbd5e1;
+  --color-text-muted: #94a3b8;
+  
+  /* Border & Dividers */
+  --color-border: rgb(148 163 184 / 0.1);
+  --color-border-hover: rgb(148 163 184 / 0.2);
+  
+  /* === Typography === */
+  --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  
+  /* Font Sizes */
+  --font-size-xs: 0.75rem;      /* 12px */
+  --font-size-sm: 0.875rem;     /* 14px */
+  --font-size-base: 1rem;       /* 16px */
+  --font-size-lg: 1.125rem;     /* 18px */
+  --font-size-xl: 1.25rem;      /* 20px */
+  --font-size-2xl: 1.5rem;      /* 24px */
+  --font-size-3xl: 1.875rem;    /* 30px */
+  --font-size-4xl: 2.25rem;     /* 36px */
+  --font-size-5xl: 3rem;        /* 48px */
+  --font-size-6xl: 3.75rem;     /* 60px */
+  
+  /* === Spacing === */
+  --spacing-section: 6rem;      /* Between major sections */
+  --spacing-card: 1.5rem;       /* Card padding */
+  
+  /* === Animation Durations === */
+  --duration-fast: 150ms;
+  --duration-base: 300ms;
+  --duration-slow: 500ms;
+  
+  /* === Border Radius === */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  
+  /* === Shadows === */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+  --shadow-glow-blue: 0 0 20px rgb(59 130 246 / 0.3);
+  --shadow-glow-green: 0 0 20px rgb(34 197 94 / 0.3);
+  --shadow-glow-yellow: 0 0 20px rgb(234 179 8 / 0.3);
+  --shadow-glow-cyan: 0 0 20px rgb(6 182 212 / 0.3);
+}
+
+/* ============================================
+   BASE STYLES
+   ============================================ */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+
+@layer utilities {
+  /* Glass Morphism Effect */
+  .glass-card {
+    background: var(--color-surface);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--color-border);
+    transition: all var(--duration-base) ease;
+  }
+  
+  .glass-card:hover {
+    background: var(--color-surface-hover);
+    border-color: var(--color-border-hover);
+    transform: translateY(-2px);
+  }
+  
+  /* Gradient Text */
+  .gradient-text {
+    background: linear-gradient(135deg, var(--color-accent-blue), var(--color-accent-cyan));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  /* Section Container */
+  .section-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: var(--spacing-section) 1.5rem;
+  }
+  
+  /* Stat Value Styles (for Stats Bar) */
+  .stat-value {
+    font-size: var(--font-size-4xl);
+    font-weight: 700;
+    line-height: 1.2;
+  }
+  
+  .stat-value-blue {
+    color: var(--color-accent-blue);
+    text-shadow: var(--shadow-glow-blue);
+  }
+  
+  .stat-value-green {
+    color: var(--color-accent-green);
+    text-shadow: var(--shadow-glow-green);
+  }
+  
+  .stat-value-yellow {
+    color: var(--color-accent-yellow);
+    text-shadow: var(--shadow-glow-yellow);
+  }
+  
+  .stat-value-cyan {
+    color: var(--color-accent-cyan);
+    text-shadow: var(--shadow-glow-cyan);
+  }
+  
+  /* Bento Grid (for Journey Section) */
+  .bento-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    grid-auto-rows: minmax(200px, auto);
+  }
+  
+  .bento-item {
+    position: relative;
+    padding: var(--spacing-card);
+    border-radius: var(--radius-lg);
+  }
+  
+  /* Hover Effects */
+  .hover-lift {
+    transition: transform var(--duration-base) ease;
+  }
+  
+  .hover-lift:hover {
+    transform: translateY(-4px);
+  }
+  
+  /* Focus Visible (Accessibility) */
+  *:focus-visible {
+    outline: 2px solid var(--color-accent-blue);
+    outline-offset: 2px;
+  }
+}
+
+/* ============================================
+   COMPONENT PATTERNS
+   ============================================ */
+
+@layer components {
+  /* Button Base */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    border-radius: var(--radius-md);
+    transition: all var(--duration-base) ease;
+    cursor: pointer;
+    border: none;
+    outline: none;
+  }
+  
+  .btn-primary {
+    background: linear-gradient(135deg, var(--color-accent-blue), var(--color-accent-cyan));
+    color: white;
+    box-shadow: var(--shadow-glow-blue);
+  }
+  
+  .btn-primary:hover {
+    box-shadow: 0 0 30px rgb(59 130 246 / 0.5);
+    transform: translateY(-2px);
+  }
+  
+  .btn-secondary {
+    background: var(--color-surface);
+    color: var(--color-text-primary);
+    border: 1px solid var(--color-border);
+  }
+  
+  .btn-secondary:hover {
+    background: var(--color-surface-hover);
+    border-color: var(--color-accent-blue);
+  }
+  
+  /* Badge */
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.75rem;
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    border-radius: var(--radius-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  
+  .badge-blue {
+    background: rgb(59 130 246 / 0.1);
+    color: var(--color-accent-blue);
+    border: 1px solid rgb(59 130 246 / 0.2);
+  }
+  
+  .badge-green {
+    background: rgb(34 197 94 / 0.1);
+    color: var(--color-accent-green);
+    border: 1px solid rgb(34 197 94 / 0.2);
+  }
+  
+  .badge-yellow {
+    background: rgb(234 179 8 / 0.1);
+    color: var(--color-accent-yellow);
+    border: 1px solid rgb(234 179 8 / 0.2);
+  }
+  
+  .badge-cyan {
+    background: rgb(6 182 212 / 0.1);
+    color: var(--color-accent-cyan);
+    border: 1px solid rgb(6 182 212 / 0.2);
+  }
+  
+  /* Card */
+  .card {
+    background: var(--color-surface);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-card);
+    transition: all var(--duration-base) ease;
+  }
+  
+  .card:hover {
+    border-color: var(--color-border-hover);
+    box-shadow: var(--shadow-lg);
+  }
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 768px) {
+  .section-container {
+    padding: 3rem 1rem;
+  }
+  
+  .stat-value {
+    font-size: var(--font-size-3xl);
+  }
+  
+  .bento-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================
+   ANIMATION KEYFRAMES
+   ============================================ */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgb(59 130 246 / 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgb(59 130 246 / 0.6);
+  }
+}
+
+/* Utility animation classes */
+.animate-fade-in {
+  animation: fadeIn var(--duration-slow) ease-out;
+}
+
+.animate-slide-in {
+  animation: slideIn var(--duration-slow) ease-out;
+}
