@@ -14,7 +14,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   
   size?: ButtonSize;
   
-  icon?: LucideIcon;
+  iconLeft?: LucideIcon;
 
   iconRight?: LucideIcon;
   
@@ -30,7 +30,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 export const Button: React.FC<ButtonProps> = ({
   variant = 'primary',
   size = 'md',
-  icon: Icon,
+  iconLeft: IconLeft,
   iconRight: IconRight,
   fullWidth = false,
   children,
@@ -71,7 +71,7 @@ export const Button: React.FC<ButtonProps> = ({
 
   return (
     <button className={combinedClasses} {...props}>
-      {Icon && <Icon size={iconSize[size]} />}
+      {IconLeft && <IconLeft size={iconSize[size]} />}
       <span>{children}</span>
       {IconRight && <IconRight size={iconSize[size]} />}
     </button>
