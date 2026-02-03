@@ -1,0 +1,81 @@
+'use client';
+
+import React from 'react';
+import type { Project } from '@/config/content';
+
+interface ProjectCardProps {
+  project: Project;
+}
+
+const colorClasses: Record<string, string> = {
+  blue: 'from-blue-500/20 to-blue-600/10',
+  green: 'from-green-500/20 to-green-600/10',
+  yellow: 'from-yellow-500/20 to-yellow-600/10',
+  cyan: 'from-cyan-500/20 to-cyan-600/10',
+};
+
+const borderColors: Record<string, string> = {
+  blue: 'group-hover:border-blue-500/50',
+  green: 'group-hover:border-green-500/50',
+  yellow: 'group-hover:border-yellow-500/50',
+  cyan: 'group-hover:border-cyan-500/50',
+};
+
+export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
+  const gradientClass = colorClasses[project.color] || colorClasses.blue;
+  const borderClass = borderColors[project.color] || borderColors.blue;
+
+  const allTechnologies = [
+    ...(project.techStack.backend || []),
+    ...(project.techStack.frontend || []),
+    ...(project.techStack.database || []),
+    ...(project.techStack.tools || []),
+  ];
+
+  return (
+    <div className={`group relative h-full bg-slate-900/50 border border-slate-800 rounded-xl overflow-hidden ${borderClass} transition-all duration-300 cursor-pointer`}>
+      <div className={`relative p-6 bg-gradient-to-br ${gradientClass}`}>
+        <div className="flex items-center justify-between mb-3">
+          <span className="px-3 py-1 bg-slate-800/80 text-slate-300 text-sm font-semibold rounded-full">
+            {project.year}
+          </span>
+        </div>
+        
+        <h3 className="text-2xl font-bold text-slate-100 group-hover:text-blue-400 transition-colors">
+          {project.title}
+        </h3>
+      </div>
+
+      <div className="p-6 space-y-4">
+        <p className="text-slate-300 text-sm leading-relaxed line-clamp-3">
+          {project.description}
+        </p>
+
+        <div>
+          <p className="text-xs text-slate-500 font-semibold uppercase mb-3">Technologies</p>
+          <div className="flex flex-wrap gap-2">
+            {allTechnologies.slice(0, 5).map((tech) => (
+              <span key={tech} className="px-3 py-1 bg-slate-800 text-slate-300 text-xs rounded-md">
+                {tech}
+              </span>
+            ))}
+            {allTechnologies.length > 5 && (
+              <span className="px-3 py-1 bg-slate-800 text-slate-400 text-xs rounded-md">
+                +{allTechnologies.length - 5}
+              </span>
+            )}
+          </div>
+        </div>
+
+        <div className="pt-4 border-t border-slate-800">
+          <span className="text-sm text-slate-500 group-hover:text-blue-400 transition-colors flex items-center gap-2">
+            View Details
+            <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </span>
+        </div>
+      </div>
+    </div>
+  );
+};
