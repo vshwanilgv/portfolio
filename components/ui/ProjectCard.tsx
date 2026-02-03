@@ -36,6 +36,13 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
     <div className={`group relative h-full bg-slate-900/50 border border-slate-800 rounded-xl overflow-hidden ${borderClass} transition-all duration-300 cursor-pointer`}>
       <div className={`relative p-6 bg-gradient-to-br ${gradientClass}`}>
         <div className="flex items-center justify-between mb-3">
+          <div className="flex flex-wrap gap-2">
+            {project.categories.map((category) => (
+              <span key={category} className="px-3 py-1 bg-slate-800/80 text-slate-300 text-xs font-semibold rounded-full">
+                {category}
+              </span>
+            ))}
+          </div>
           <span className="px-3 py-1 bg-slate-800/80 text-slate-300 text-sm font-semibold rounded-full">
             {project.year}
           </span>
