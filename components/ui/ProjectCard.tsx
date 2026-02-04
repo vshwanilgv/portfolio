@@ -8,17 +8,17 @@ interface ProjectCardProps {
 }
 
 const colorClasses: Record<string, string> = {
-  blue: 'from-blue-500/20 to-blue-600/10',
-  green: 'from-green-500/20 to-green-600/10',
-  yellow: 'from-yellow-500/20 to-yellow-600/10',
-  cyan: 'from-cyan-500/20 to-cyan-600/10',
+  blue: 'from-blue-400/30 to-blue-300/20',
+  green: 'from-green-400/30 to-green-300/20',
+  yellow: 'from-yellow-400/30 to-yellow-300/20',
+  cyan: 'from-cyan-400/30 to-cyan-300/20',
 };
 
 const borderColors: Record<string, string> = {
-  blue: 'group-hover:border-blue-500/50',
-  green: 'group-hover:border-green-500/50',
-  yellow: 'group-hover:border-yellow-500/50',
-  cyan: 'group-hover:border-cyan-500/50',
+  blue: 'group-hover:border-blue-400/60',
+  green: 'group-hover:border-green-400/60',
+  yellow: 'group-hover:border-yellow-400/60',
+  cyan: 'group-hover:border-cyan-400/60',
 };
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
@@ -36,6 +36,13 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
     <div className={`group relative h-full bg-slate-900/50 border border-slate-800 rounded-xl overflow-hidden ${borderClass} transition-all duration-300 cursor-pointer`}>
       <div className={`relative p-6 bg-gradient-to-br ${gradientClass}`}>
         <div className="flex items-center justify-between mb-3">
+          <div className="flex flex-wrap gap-2">
+            {project.categories.map((category) => (
+              <span key={category} className="px-3 py-1 bg-slate-800/80 text-slate-300 text-xs font-semibold rounded-full">
+                {category}
+              </span>
+            ))}
+          </div>
           <span className="px-3 py-1 bg-slate-800/80 text-slate-300 text-sm font-semibold rounded-full">
             {project.year}
           </span>
