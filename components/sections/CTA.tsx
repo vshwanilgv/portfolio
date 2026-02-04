@@ -34,7 +34,7 @@ export const CTA: React.FC = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
             <Button
               variant="primary"
-              icon={Mail}
+              iconLeft={Mail}
               iconRight={ArrowRight}
               size="lg"
             >
