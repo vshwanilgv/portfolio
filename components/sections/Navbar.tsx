@@ -15,7 +15,7 @@ export const Navbar: React.FC = () => {
     { href: '/education', label: 'Education', isAnchor: false },
     { href: '/experience', label: 'Experience', isAnchor: false },
     { href: '/projects', label: 'Projects', isAnchor: false },
-    { href: '#contact', label: 'Contact', isAnchor: false },
+    { href: '/#contact', label: 'Contact', isAnchor: true },
   ];
 
   return (
