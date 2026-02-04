@@ -85,7 +85,7 @@ export const PORTFOLIO_DATA: PortfolioContent = {
     bio: 'Final year undergraduate at Faculty of IT, University of Moratuwa. Passionate about Full Stack Development, AI, and building impactful solutions.',
     location: 'Sri Lanka',
     email: 'vishwanibhagya2002@gmail.com',
-    avatar: '/images/hero/profile.jpeg',
+    avatar: '/images/about/about-me.jpeg',
     resume: '/resume/Vishwani-Bhagya-Resume.pdf',
     socials: [
       {
