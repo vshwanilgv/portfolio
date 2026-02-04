@@ -59,9 +59,11 @@ export const Hero: React.FC = () => {
             transition={{ duration: 0.5, delay: 0.4 }}
             className="flex flex-wrap gap-4 mb-12"
           >
-            <Button variant="primary" iconRight={ArrowRight}>
-              View Projects
-            </Button>
+            <a href="/projects">
+              <Button variant="primary" iconRight={ArrowRight}>
+                View Projects
+              </Button>
+            </a>
             <a href={profile.resume} download>
               <Button variant="secondary" iconLeft={Download}>
                 Download Resume
