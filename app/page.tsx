@@ -1,5 +1,5 @@
 import React from 'react';
-import { Hero, StatsBar, JourneyGrid, ProjectsGrid, CTA, About, Gallery} from '@/components/sections';
+import { Hero, StatsBar, CTA, Gallery} from '@/components/sections';
 
 export default function HomePage() {
   return (
