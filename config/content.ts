@@ -50,6 +50,7 @@ export interface TechStack {
 
 export interface ArchitectureDiagrams {
   system?: string;
+  logical?: string;
   deployment?: string;
 }
 
@@ -239,24 +240,31 @@ export const PORTFOLIO_DATA: PortfolioContent = {
       id: '1',
       slug: 'food-store-web-app',
       title: 'Food Store Web Application',
-      description: 'A full-featured e-commerce platform for online food ordering with real-time inventory management, payment integration, and order tracking capabilities.',
-      overview: 'An end-to-end food store web application that streamlines the online food ordering process. The platform includes user authentication, shopping cart functionality, real-time order tracking, and an admin dashboard for inventory and order management.',
+      description: 'A scalable e-commerce platform built with microservices architecture and microfrontend design, featuring independent services for users, products, and cart management with a BFF layer for optimized client communication.',
+      overview: 'An enterprise grade food store web application demonstrating modern architectural patterns. The backend implements a microservices architecture with independently deployable services (User Service, Product Service, Cart Service), while the frontend follows a microfrontend approach with separate micro-apps for navigation, user management, and product catalog. A Backend-for-Frontend (BFF) layer orchestrates communication between frontend modules and backend microservices, optimizing data aggregation and reducing client-server roundtrips.',
       keyFeatures: [
-        'User authentication and profile management',
-        'Real-time shopping cart and checkout system',
-        'Integrated payment gateway for secure transactions',
-        'Order tracking and notification system',
-        'Admin dashboard for inventory management',
-        'Responsive design for mobile and desktop',
+        'Microservices architecture with independently scalable services',
+        'Microfrontend architecture with module federation for independent deployment',
+        'BFF layer for optimized data aggregation and API orchestration',
+        'AWS Cognito integration for secure user authentication and authorization',
+        'Real-time shopping cart with event-driven updates',
+        'Decoupled frontend modules (User, Product, Navigation)',
+        'Inter-service communication via REST APIs',
+        'Independent CI/CD pipelines for each microservice and microfrontend',
       ],
       techStack: {
-        backend: ['Node.js', 'Express'],
-        frontend: ['React', 'JavaScript', 'CSS'],
-        database: ['MongoDB'],
-        tools: ['Git', 'Postman', 'VS Code'],
+        backend: ['Node.js', 'Express', 'Microservices', 'RESTful APIs', 'AWS Cognito'],
+        frontend: ['React', 'JavaScript', 'Single-SPA', 'CSS'],
+        database: ['PostgreSQL'],
+        tools: ['Git', 'Postman', 'VS Code', 'AWS'],
       },
-      categories: ['Full Stack', 'Web', 'E-commerce'],
-      year: 2023,
+      architectureDiagrams: {
+        system: '/images/projects/food-store/use-case.png',
+        logical: '/images/projects/food-store/logical-diagram.png',
+        deployment: '/images/projects/food-store/deployment-diagram.png',
+      },
+      categories: ['Full Stack', 'Web', 'E-commerce', 'Microservices'],
+      year: 2024,
       image: '/images/projects/food-store.jpg',
       color: 'green',
     },

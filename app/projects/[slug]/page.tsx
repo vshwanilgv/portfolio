@@ -135,6 +135,21 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
                   </div>
                 )}
 
+                {/* Logical Architecture */}
+                {project.architectureDiagrams.logical && (
+                  <div>
+                    <h3 className="text-xl font-semibold text-slate-200 mb-4">Logical Architecture</h3>
+                    <div className={`relative aspect-video w-full rounded-xl overflow-hidden border-2 ${colors.border} bg-slate-900/50`}>
+                      <Image
+                        src={project.architectureDiagrams.logical}
+                        alt={`${project.title} - Logical Architecture`}
+                        fill
+                        className="object-contain p-4"
+                      />
+                    </div>
+                  </div>
+                )}
+
                 {/* Deployment Architecture */}
                 {project.architectureDiagrams.deployment && (
                   <div>
