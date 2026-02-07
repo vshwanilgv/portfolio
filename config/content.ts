@@ -65,6 +65,7 @@ export interface Project {
   architectureDiagrams?: ArchitectureDiagrams;
   categories: string[];
   githubUrl?: string;
+  mediumArticleUrl?: string;
   screenshots?: string[];
   year: number;
   image: string;
@@ -273,7 +274,8 @@ export const PORTFOLIO_DATA: PortfolioContent = {
         '/images/projects/food-store/image4.png',
       ],
       color: 'green',
-      githubUrl:'https://github.com/Sysco-Project-Summit-Vishwani'
+      githubUrl: 'https://github.com/Sysco-Project-Summit-Vishwani',
+      mediumArticleUrl: 'https://medium.com/devops-dev/micro-service-architecture-42d6bf1b9581'
     },
     {
       id: '2',

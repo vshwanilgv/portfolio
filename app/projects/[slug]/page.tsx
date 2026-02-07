@@ -2,7 +2,7 @@ import React from 'react';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowLeft, CheckCircle2, Github, ExternalLink } from 'lucide-react';
+import { ArrowLeft, CheckCircle2, Github, ExternalLink, BookOpen } from 'lucide-react';
 import { getProjectBySlug, getAllProjects } from '@/config/content';
 import DiagramTabs from '@/components/DiagramTabs';
 import ScreenshotsGallery from '@/components/ScreenshotsGallery';
@@ -82,10 +82,22 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
                   href={project.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white rounded-full text-sm font-semibold transition-all group"
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-green-600/20 hover:bg-green-600/30 border border-green-500/30 text-green-400 hover:text-green-300 rounded-full text-sm font-semibold transition-all group"
                 >
                   <Github className="w-4 h-4" />
                   View on GitHub
+                  <ExternalLink className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                </a>
+              )}
+              {project.mediumArticleUrl && (
+                <a
+                  href={project.mediumArticleUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-green-600/20 hover:bg-green-600/30 border border-green-500/30 text-green-400 hover:text-green-300 rounded-full text-sm font-semibold transition-all group"
+                >
+                  <BookOpen className="w-4 h-4" />
+                  Read Article Series
                   <ExternalLink className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </a>
               )}
