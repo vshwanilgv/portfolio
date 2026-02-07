@@ -265,8 +265,15 @@ export const PORTFOLIO_DATA: PortfolioContent = {
       },
       categories: ['Full Stack', 'Web', 'E-commerce', 'Microservices'],
       year: 2024,
-      image: '/images/projects/food-store.jpg',
+      image: '/images/projects/food-store/image1.png',
+      screenshots: [
+        '/images/projects/food-store/image1.png',
+        '/images/projects/food-store/image2.png',
+        '/images/projects/food-store/image3.png',
+        '/images/projects/food-store/image4.png',
+      ],
       color: 'green',
+      githubUrl:'https://github.com/Sysco-Project-Summit-Vishwani'
     },
     {
       id: '2',

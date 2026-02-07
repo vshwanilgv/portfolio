@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import type { Project } from '@/config/content';
 
 interface ProjectCardProps {
@@ -51,6 +52,16 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
         <h3 className="text-2xl font-bold text-slate-100 group-hover:text-blue-400 transition-colors">
           {project.title}
         </h3>
+      
+      </div>
+              <div className="relative h-48 w-full overflow-hidden bg-slate-800">
+          <Image
+          src={project.image}
+          alt={project.title}
+          fill
+          className="object-cover group-hover:scale-110 transition-transform duration-500"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent" />
       </div>
 
       <div className="p-6 space-y-4">
@@ -73,6 +84,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
             )}
           </div>
         </div>
+              {/* Project Image */}
 
         <div className="pt-4 border-t border-slate-800">
           <span className="text-sm text-slate-500 group-hover:text-blue-400 transition-colors flex items-center gap-2">

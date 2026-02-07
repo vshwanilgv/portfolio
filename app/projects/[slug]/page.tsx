@@ -4,6 +4,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowLeft, CheckCircle2, Github, ExternalLink } from 'lucide-react';
 import { getProjectBySlug, getAllProjects } from '@/config/content';
+import DiagramTabs from '@/components/DiagramTabs';
+import ScreenshotsGallery from '@/components/ScreenshotsGallery';
 
 interface ProjectPageProps {
   params: {
@@ -113,59 +115,11 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
 
           {/* Architecture Diagrams */}
           {project.architectureDiagrams && (
-            <section className="mb-16">
-              <h2 className="text-3xl font-bold text-slate-100 mb-6 flex items-center gap-3">
-                <span className={`w-1 h-8 rounded-full ${colors.bg}`} />
-                Architecture Diagrams
-              </h2>
-              
-              <div className="space-y-8">
-                {/* System Architecture */}
-                {project.architectureDiagrams.system && (
-                  <div>
-                    <h3 className="text-xl font-semibold text-slate-200 mb-4">System Architecture</h3>
-                    <div className={`relative aspect-video w-full rounded-xl overflow-hidden border-2 ${colors.border} bg-slate-900/50`}>
-                      <Image
-                        src={project.architectureDiagrams.system}
-                        alt={`${project.title} - System Architecture`}
-                        fill
-                        className="object-contain p-4"
-                      />
-                    </div>
-                  </div>
-                )}
-
-                {/* Logical Architecture */}
-                {project.architectureDiagrams.logical && (
-                  <div>
-                    <h3 className="text-xl font-semibold text-slate-200 mb-4">Logical Architecture</h3>
-                    <div className={`relative aspect-video w-full rounded-xl overflow-hidden border-2 ${colors.border} bg-slate-900/50`}>
-                      <Image
-                        src={project.architectureDiagrams.logical}
-                        alt={`${project.title} - Logical Architecture`}
-                        fill
-                        className="object-contain p-4"
-                      />
-                    </div>
-                  </div>
-                )}
-
-                {/* Deployment Architecture */}
-                {project.architectureDiagrams.deployment && (
-                  <div>
-                    <h3 className="text-xl font-semibold text-slate-200 mb-4">Deployment Architecture</h3>
-                    <div className={`relative aspect-video w-full rounded-xl overflow-hidden border-2 ${colors.border} bg-slate-900/50`}>
-                      <Image
-                        src={project.architectureDiagrams.deployment}
-                        alt={`${project.title} - Deployment Architecture`}
-                        fill
-                        className="object-contain p-4"
-                      />
-                    </div>
-                  </div>
-                )}
-              </div>
-            </section>
+            <DiagramTabs 
+              architectureDiagrams={project.architectureDiagrams}
+              projectTitle={project.title}
+              colors={colors}
+            />
           )}
 
           {/* Key Features */}
@@ -189,27 +143,11 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
 
           {/* Screenshots */}
           {project.screenshots && project.screenshots.length > 0 && (
-            <section className="mb-16">
-              <h2 className="text-3xl font-bold text-slate-100 mb-6 flex items-center gap-3">
-                <span className={`w-1 h-8 rounded-full ${colors.bg}`} />
-                Screenshots
-              </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {project.screenshots.map((screenshot, index) => (
-                  <div
-                    key={index}
-                    className={`relative aspect-video w-full rounded-xl overflow-hidden border-2 ${colors.border} bg-slate-900/50 hover:scale-[1.02] transition-transform duration-300`}
-                  >
-                    <Image
-                      src={screenshot}
-                      alt={`${project.title} - Screenshot ${index + 1}`}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                ))}
-              </div>
-            </section>
+            <ScreenshotsGallery 
+              screenshots={project.screenshots}
+              projectTitle={project.title}
+              colors={colors}
+            />
           )}
 
           {/* Technology Stack */}
