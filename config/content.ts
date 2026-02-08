@@ -66,6 +66,7 @@ export interface Project {
   categories: string[];
   githubUrl?: string;
   mediumArticleUrl?: string;
+  huggingFaceUrl?: string;
   screenshots?: string[];
   year: number;
   image: string;
@@ -405,27 +406,28 @@ export const PORTFOLIO_DATA: PortfolioContent = {
     {
       id: '6',
       slug: 'gemma-trainer',
-      title: 'Gemma 3 Trainer',
+      title: 'Fine Tunning SLAM - Gemma 3 ',
       description: 'A specialized training pipeline for fine-tuning Google\'s Gemma 3 model on astronomy datasets, enabling domain-specific language understanding for research applications.',
       overview: 'This project focuses on adapting large language models for domain-specific tasks in astronomy research. By fine-tuning Gemma 3 on curated astronomy datasets, the model can assist researchers in literature review, data analysis, and hypothesis generation. The system achieves state-of-the-art performance on astronomy-specific tasks.',
       keyFeatures: [
-        'Efficient fine-tuning using LoRA and QLoRA techniques',
-        'Processed and cleaned 100K+ astronomy research papers',
-        '92% accuracy on astronomy-specific Q&A tasks',
-        'Reduced inference time by 40% through quantization',
-        'Custom evaluation metrics for astronomical reasoning',
-        'Interactive web interface for model testing',
+        // 'Efficient fine-tuning using LoRA and QLoRA techniques',
+        // 'Processed and cleaned 100K+ astronomy research papers',
+        // '92% accuracy on astronomy-specific Q&A tasks',
+        // 'Reduced inference time by 40% through quantization',
+        // 'Custom evaluation metrics for astronomical reasoning',
+        // 'Interactive web interface for model testing',
       ],
       techStack: {
         backend: ['Python', 'PyTorch', 'Transformers'],
-        frontend: ['Streamlit', 'Gradio'],
-        database: ['PostgreSQL', 'Vector Database (Pinecone)'],
-        tools: ['Hugging Face', 'CUDA', 'Weights & Biases', 'Docker'],
+        tools: ['Hugging Face', 'Google Colab (T4 GPU)'],
       },
-      categories: ['AI', 'Research', 'ML'],
-      year: 2024,
-      image: '/images/projects/gemma-trainer.jpg',
+      categories: ['AI', 'SLM', 'Fine Tunning'],
+      year: 2026,
+      image: '/images/projects/gemma/image1.png',
       color: 'yellow',
+      githubUrl: 'https://github.com/vshwanilgv/FineTuneAstroQnA',
+      mediumArticleUrl:'https://blog.stackademic.com/finetuning-gemma-1b-what-i-learned-8fa9bf0fac65',
+      huggingFaceUrl:'vshwanilgv/gemma-3-1b-it-astro-mcqa'
     },
     {
       id: '7',

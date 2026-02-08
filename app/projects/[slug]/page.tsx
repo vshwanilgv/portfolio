@@ -2,7 +2,7 @@ import React from 'react';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowLeft, CheckCircle2, Github, ExternalLink, BookOpen } from 'lucide-react';
+import { ArrowLeft, CheckCircle2, Github, ExternalLink, BookOpen, Brain } from 'lucide-react';
 import { getProjectBySlug, getAllProjects } from '@/config/content';
 import DiagramTabs from '@/components/DiagramTabs';
 import ScreenshotsGallery from '@/components/ScreenshotsGallery';
@@ -98,6 +98,18 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
                 >
                   <BookOpen className="w-4 h-4" />
                   Read Article Series
+                  <ExternalLink className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                </a>
+              )}
+              {project.huggingFaceUrl && (
+                <a
+                  href={project.huggingFaceUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-cyan-600/20 hover:bg-cyan-600/30 border border-cyan-500/30 text-cyan-400 hover:text-cyan-300 rounded-full text-sm font-semibold transition-all group"
+                >
+                  <Brain className="w-4 h-4" />
+                  View Hugging Face Model
                   <ExternalLink className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </a>
               )}
