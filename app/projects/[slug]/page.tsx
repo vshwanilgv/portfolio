@@ -173,7 +173,8 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
                 Phase Breakdown
               </h2>
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                {Object.entries(project.phaseBreakdown).map(([phaseKey, phase]) => (
+                {(Object.entries(project.phaseBreakdown) as Array<[string, { title: string; highlights: string[] }]>)
+                  .map(([phaseKey, phase]) => (
                   <div
                     key={phaseKey}
                     className={`p-6 bg-slate-900/50 border ${colors.border} rounded-xl`}
@@ -185,7 +186,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
                       {phase.title}
                     </h3>
                     <ul className="space-y-3">
-                      {phase.highlights.map((highlight) => (
+                      {phase.highlights.map((highlight: string) => (
                         <li key={highlight} className="flex items-start gap-3">
                           <CheckCircle2 className={`w-4 h-4 ${colors.text} flex-shrink-0 mt-0.5`} />
                           <span className="text-slate-300">{highlight}</span>
