@@ -54,6 +54,16 @@ export interface ArchitectureDiagrams {
   deployment?: string;
 }
 
+export interface PhaseDetail {
+  title: string;
+  highlights: string[];
+}
+
+export interface PhaseBreakdown {
+  phase1: PhaseDetail;
+  phase2: PhaseDetail;
+}
+
 export interface Project {
   id: string;
   slug: string;
@@ -61,6 +71,7 @@ export interface Project {
   description: string;
   overview: string;
   keyFeatures: string[];
+  phaseBreakdown?: PhaseBreakdown;
   techStack: TechStack;
   architectureDiagrams?: ArchitectureDiagrams;
   categories: string[];
@@ -300,6 +311,27 @@ export const PORTFOLIO_DATA: PortfolioContent = {
         // Phase 2 – Developer Enablement
         'NPM package published to simplify Public API consumption',
       ],
+      phaseBreakdown: {
+        phase1: {
+          title: 'Core IoT Monitoring Platform',
+          highlights: [
+            'MQTT-based real-time data pipeline',
+            'Backend services for device registration and data ingestion',
+            'Web dashboard for monitoring live and historical sensor data',
+            'User authentication and authorization flows',
+            'Initial deployment-ready architecture',
+          ],
+        },
+        phase2: {
+          title: 'Public API & Developer Tooling',
+          highlights: [
+            'Public REST API exposed for third-party websites and applications',
+            'Access token generation and management',
+            'Reusable NPM package wrapping the Public API',
+            'Improved developer experience for external integrations',
+          ],
+        },
+      },
       
       techStack: {
         backend: ['Node.js', 'Express', 'MQTT Broker', 'REST APIs'],
@@ -326,6 +358,7 @@ export const PORTFOLIO_DATA: PortfolioContent = {
       
       ],
       color: 'green',
+      githubUrl:'https://github.com/Datacanvas-IoT'
     },
     {
       id: '3',

@@ -165,6 +165,39 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
             </div>
           </section>
 
+          {/* Phase Breakdown */}
+          {project.phaseBreakdown && (
+            <section className="mb-16">
+              <h2 className="text-3xl font-bold text-slate-100 mb-6 flex items-center gap-3">
+                <span className={`w-1 h-8 rounded-full ${colors.bg}`} />
+                Phase Breakdown
+              </h2>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                {Object.entries(project.phaseBreakdown).map(([phaseKey, phase]) => (
+                  <div
+                    key={phaseKey}
+                    className={`p-6 bg-slate-900/50 border ${colors.border} rounded-xl`}
+                  >
+                    <p className="text-xs uppercase tracking-wide text-slate-500 mb-2">
+                      {phaseKey.replace('phase', 'Phase ')}
+                    </p>
+                    <h3 className="text-xl font-semibold text-slate-100 mb-4">
+                      {phase.title}
+                    </h3>
+                    <ul className="space-y-3">
+                      {phase.highlights.map((highlight) => (
+                        <li key={highlight} className="flex items-start gap-3">
+                          <CheckCircle2 className={`w-4 h-4 ${colors.text} flex-shrink-0 mt-0.5`} />
+                          <span className="text-slate-300">{highlight}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
+
           {/* Screenshots */}
           {project.screenshots && project.screenshots.length > 0 && (
             <ScreenshotsGallery 
