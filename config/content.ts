@@ -282,28 +282,49 @@ export const PORTFOLIO_DATA: PortfolioContent = {
       id: '2',
       slug: 'datacanvas',
       title: 'DataCanvas IoT Monitoring Platform',
-      description: 'A full-stack IoT data management platform that simplifies device connectivity, real-time data streaming, and visualization for developers building IoT applications.',
-      overview: 'DataCanvas is a comprehensive IoT data management solution designed to reduce the complexity of building IoT applications. The platform provides real-time MQTT communication, device management, and powerful data visualization tools. It enables developers to focus on building features rather than managing infrastructure.',
+      description: 'A full-stack IoT monitoring platform that enables real-time device data ingestion, storage, visualization, and controlled data sharing via public APIs.',
+      overview: 'DataCanvas is an IoT data platform built to simplify real-time device monitoring and data access for developers and organizations. The platform focuses on reliable MQTT-based data ingestion, secure device management, and intuitive data visualization. Phase 1 of the project concentrated on building a stable core system for collecting, storing, and exposing IoT data, while later phases introduced public data access and developer tooling.',
       keyFeatures: [
-        'Real-time device connectivity using MQTT protocol',
-        'Customizable dashboards with drag-and-drop widgets',
-        'RESTful API for seamless third-party integrations',
-        'Role-based access control and team collaboration',
-        'Time-series data storage and advanced analytics',
-        'Alert system for threshold-based notifications',
+        // Phase 1 – Core Platform
+        'Real-time IoT data ingestion using MQTT protocol',
+        'Centralized device and sensor management',
+        'Live data visualization through web dashboards',
+        'Secure authentication and role-based access control',
+        'Time-series data storage for sensor readings',
+
+        // Phase 1.5 – Public API
+        'Public REST API for external applications to access IoT data',
+        'Token-based authentication for controlled data sharing',
+        'API usage scoped per project and device',
+
+        // Phase 2 – Developer Enablement
+        'NPM package published to simplify Public API consumption',
       ],
+      
       techStack: {
-        backend: ['Node.js', 'Express', 'MQTT Broker'],
+        backend: ['Node.js', 'Express', 'MQTT Broker', 'REST APIs'],
         frontend: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Chart.js'],
-        database: ['PostgreSQL', 'TimescaleDB', 'Redis'],
-        tools: ['Docker', 'Nginx', 'GitHub Actions', 'AWS'],
+        database: ['PostgreSQL'],
+        tools: ['Docker', 'Nginx', 'GitHub Actions', 'AWS', 'NPM'],
       },
       architectureDiagrams: {
         system: '/images/projects/datacanvas/system-architecture.png',
       },
       categories: ['Full Stack', 'IoT', 'Web'],
-      year: 2024,
-      image: '/images/projects/datacanvas.jpg',
+      year: 2024-2026,
+      image: '/images/projects/datacanvas/image1.png',
+      screenshots: [
+        '/images/projects/datacanvas/image1.png',
+        '/images/projects/datacanvas/image2.png',
+        '/images/projects/datacanvas/image3.png',
+        '/images/projects/datacanvas/image4.png',
+        '/images/projects/datacanvas/image5.png',       
+        '/images/projects/datacanvas/image6.png',
+        '/images/projects/datacanvas/image7.png',
+        '/images/projects/datacanvas/image8.png',
+        '/images/projects/datacanvas/image9.png',
+      
+      ],
       color: 'green',
     },
     {
