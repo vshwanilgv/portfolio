@@ -214,6 +214,8 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
               <span className={`w-1 h-8 rounded-full ${colors.bg}`} />
               Technology Stack
             </h2>
+
+
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Backend */}
@@ -225,6 +227,25 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
                   </h3>
                   <div className="flex flex-wrap gap-2">
                     {project.techStack.backend.map((tech) => (
+                      <span
+                        key={tech}
+                        className="px-3 py-1.5 bg-slate-800 text-slate-300 text-sm rounded-md"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {project.techStack.hardware && project.techStack.hardware.length > 0 && (
+                <div className="bg-slate-900/50 border border-slate-800 rounded-xl p-6">
+                  <h3 className="text-xl font-semibold text-slate-100 mb-4 flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-purple-400" />
+                    Hardware
+                  </h3>
+                  <div className="flex flex-wrap gap-2">
+                    {project.techStack.hardware.map((tech) => (
                       <span
                         key={tech}
                         className="px-3 py-1.5 bg-slate-800 text-slate-300 text-sm rounded-md"

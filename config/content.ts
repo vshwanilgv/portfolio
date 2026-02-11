@@ -42,6 +42,7 @@ export interface JourneyItem {
 }
 
 export interface TechStack {
+  hardware?: string[];
   backend?: string[];
   frontend?: string[];
   database?: string[];
@@ -587,25 +588,27 @@ export const PORTFOLIO_DATA: PortfolioContent = {
       id: '11',
       slug: 'attendance-monitoring',
       title: 'Faculty Access Control System',
-      description: 'Faculty access control system with automated attendance tracking, RFID integration, and comprehensive reporting capabilities.',
-      overview: 'A smart attendance monitoring system designed for educational institutions to automate attendance tracking and access control. The system uses RFID technology to record entries and exits, generating detailed reports for faculty and administration.',
+      description: 'An ESP32-powered RFID attendance system with a web application for real-time student attendance tracking, monitoring, and reporting.',
+      overview: 'A smart IoT-based attendance marking system developed for the Faculty of IT to automate student attendance tracking. The system uses an ESP32 microcontroller integrated with an RFID reader to scan student ID cards and record attendance in real-time. The captured data is transmitted to a backend server and displayed through a web application dashboard for faculty administrators. The system improves accuracy, reduces manual work, and provides detailed attendance analytics and reporting.',
       keyFeatures: [
-        'RFID-based automated attendance tracking',
-        'Real-time entry and exit logging',
-        'Faculty and student database management',
-        'Automated report generation and analytics',
-        'Admin dashboard for attendance monitoring',
-        'Export functionality for attendance records',
+        'ESP32-based RFID card scanning device',
+        'Real-time attendance recording via WiFi',
+        'Student ID card authentication system',
+        'Web-based admin dashboard for monitoring',
+        'Attendance history tracking per student',
+        'Automated report generation (daily/monthly)',
+        'Role-based access control for administrators',
+        'Export attendance records (CSV/PDF)',
       ],
       techStack: {
-        backend: ['Python', 'Flask', 'REST API'],
-        frontend: ['React', 'JavaScript', 'Bootstrap'],
-        database: ['MySQL'],
-        tools: ['RFID Reader', 'Arduino', 'Git'],
+        hardware: ['ESP32', 'MFRC522 RFID Module', 'RFID Student ID Cards'],
+        backend: ['Node.js / Flask (REST API)'],
+        frontend: ['React / HTML, CSS, JavaScript'],
+        tools: ['Arduino IDE', 'Git', 'Postman'],
       },
       categories: ['Full Stack', 'IoT', 'Hardware'],
       year: 2023,
-      image: '/images/projects/attendance-system.jpg',
+      image: '/images/projects/attendance-monitoring/fac-access.jpeg',
       color: 'blue',
     },
     {
