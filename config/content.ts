@@ -431,7 +431,6 @@ export const PORTFOLIO_DATA: PortfolioContent = {
       keyFeatures: [
         'Multi-layered decision architecture for intelligent robot planning',
         'Integration of computer vision with natural language understanding',
-        '87% success rate in complex navigation tasks',
         'Cross-platform compatibility with different robot systems',
         'Real-time adaptation to dynamic environments',
         'Natural language command processing for intuitive control',
