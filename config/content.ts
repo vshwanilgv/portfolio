@@ -516,11 +516,11 @@ export const PORTFOLIO_DATA: PortfolioContent = {
       overview: 'Developed a dedicated platform to manage IEEE WIE membership operations including member registration, event management, payment processing, and communication tools. The system streamlines administrative tasks and enhances member engagement.',
       keyFeatures: [
         'Member registration and profile management',
-        'Event creation and RSVP system',
-        'Payment integration for membership fees',
+        'Adding Volunteer Contributions and Achievements',
+        'Public dashboard showcasing member achievements and contributions',
         'Email notification and communication tools',
-        'Admin dashboard for member analytics',
-        'Certificate generation for events and workshops',
+        'Admin dashboard for member analytics and approving member roles and contributions',
+        'Service letter generation for members based on their contributions and roles',
       ],
       techStack: {
         backend: ['Node.js', 'Express', 'REST API'],
