@@ -76,6 +76,7 @@ export interface Project {
   techStack: TechStack;
   architectureDiagrams?: ArchitectureDiagrams;
   categories: string[];
+  featured?: boolean;
   githubUrl?: string;
   mediumArticleUrl?: string;
   huggingFaceUrl?: string;
@@ -278,6 +279,7 @@ export const PORTFOLIO_DATA: PortfolioContent = {
         deployment: '/images/projects/food-store/deployment-diagram.png',
       },
       categories: ['Full Stack', 'Web', 'E-commerce', 'Microservices'],
+      featured: true,
       year: 2024,
       image: '/images/projects/food-store/image1.png',
       screenshots: [
@@ -344,6 +346,7 @@ export const PORTFOLIO_DATA: PortfolioContent = {
         system: '/images/projects/datacanvas/system-architecture.png',
       },
       categories: ['Full Stack', 'IoT', 'Web'],
+      featured: true,
       year: 2024-2026,
       image: '/images/projects/datacanvas/image1.png',
       screenshots: [
@@ -386,6 +389,7 @@ export const PORTFOLIO_DATA: PortfolioContent = {
         system: '/images/projects/predictive-maintenance/technical-architecture.png',
       },
       categories: ['AI', 'IoT', 'ML', '4IR'],
+      featured: true,
       year: 2024,
       image: '/images/projects/predictive-maintenance/image1.png',
       screenshots:[
@@ -453,6 +457,7 @@ export const PORTFOLIO_DATA: PortfolioContent = {
         '/images/projects/vla-framework/screenshot4.png',
       ],
       categories: ['AI', 'Research', 'Robotics'],
+      featured: true,
       year: 2025,
       image: '/images/projects/vla-framework.jpg',
       color: 'blue',
