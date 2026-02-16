@@ -568,7 +568,7 @@ export const PORTFOLIO_DATA: PortfolioContent = {
       slug: 'verifica-fingerprint',
       title: 'Verifica Fingerprint Verification System',
       description: 'A biometric authentication system combining hardware and software for secure fingerprint-based verification and access control.',
-      overview: 'Verifica is a complete biometric authentication solution that integrates fingerprint scanning hardware with a robust software platform. The system provides secure, fast, and reliable user verification for access control applications.',
+      overview: 'Verifica is a complete biometric authentication solution that integrates fingerprint scanning hardware with a robust software platform. The system provides secure, fast, and reliable user verification for access control applications. The System is currently used by CODL University of Moratuwa',
       keyFeatures: [
         'Fingerprint capture and processing',
         'Real-time fingerprint matching and verification',
