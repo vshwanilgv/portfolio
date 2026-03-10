@@ -424,8 +424,13 @@ export const PORTFOLIO_DATA: PortfolioContent = {
       },
       categories: ['AI', 'Robotics', 'Research'],
       year: 2025,
-      image: '/images/projects/autonomous-uav.jpg',
+      githubUrl:'https://github.com/vshwanilgv/autonuomous-uav-navigation',
+      image: '/images/projects/uav-navigation/uav.jpg',
       color: 'blue',
+      screenshots:[
+        '/images/projects/uav-navigation/UAV-navig.png',
+      ],
+      mediumArticleUrl:'https://docs.google.com/presentation/d/1kkG5yvwm-0pti57gjArGpWNWZ_9tTVfA/edit?usp=sharing&ouid=116669971725774873755&rtpof=true&sd=true',
     },
     {
       id: '5',
