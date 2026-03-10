@@ -44,7 +44,7 @@ export default function ScreenshotsGallery({ screenshots, projectTitle, colors }
       <section className="mb-16">
         <h2 className="text-3xl font-bold text-slate-100 mb-6 flex items-center gap-3">
           <span className={`w-1 h-8 rounded-full ${colors.bg}`} />
-          Screenshots
+          Evidences
         </h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
