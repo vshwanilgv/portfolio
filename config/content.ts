@@ -42,6 +42,7 @@ export interface JourneyItem {
 }
 
 export interface TechStack {
+  hardware?: string[];
   backend?: string[];
   frontend?: string[];
   database?: string[];
@@ -50,7 +51,18 @@ export interface TechStack {
 
 export interface ArchitectureDiagrams {
   system?: string;
+  logical?: string;
   deployment?: string;
+}
+
+export interface PhaseDetail {
+  title: string;
+  highlights: string[];
+}
+
+export interface PhaseBreakdown {
+  phase1: PhaseDetail;
+  phase2: PhaseDetail;
 }
 
 export interface Project {
@@ -60,10 +72,14 @@ export interface Project {
   description: string;
   overview: string;
   keyFeatures: string[];
+  phaseBreakdown?: PhaseBreakdown;
   techStack: TechStack;
   architectureDiagrams?: ArchitectureDiagrams;
   categories: string[];
+  featured?: boolean;
   githubUrl?: string;
+  mediumArticleUrl?: string;
+  huggingFaceUrl?: string;
   screenshots?: string[];
   year: number;
   image: string;
@@ -85,7 +101,7 @@ export const PORTFOLIO_DATA: PortfolioContent = {
     bio: 'Final year undergraduate at Faculty of IT, University of Moratuwa. Passionate about Full Stack Development, AI, and building impactful solutions.',
     location: 'Sri Lanka',
     email: 'vishwanibhagya2002@gmail.com',
-    avatar: '/images/hero/profile.jpeg',
+    avatar: '/images/about/about-me.jpeg',
     resume: '/resume/Vishwani-Bhagya-Resume.pdf',
     socials: [
       {
@@ -239,79 +255,151 @@ export const PORTFOLIO_DATA: PortfolioContent = {
       id: '1',
       slug: 'food-store-web-app',
       title: 'Food Store Web Application',
-      description: 'A full-featured e-commerce platform for online food ordering with real-time inventory management, payment integration, and order tracking capabilities.',
-      overview: 'An end-to-end food store web application that streamlines the online food ordering process. The platform includes user authentication, shopping cart functionality, real-time order tracking, and an admin dashboard for inventory and order management.',
+      description: 'A scalable e-commerce platform built with microservices architecture and microfrontend design, featuring independent services for users, products, and cart management with a BFF layer for optimized client communication.',
+      overview: 'An enterprise grade food store web application demonstrating modern architectural patterns. The backend implements a microservices architecture with independently deployable services (User Service, Product Service, Cart Service), while the frontend follows a microfrontend approach with separate micro-apps for navigation, user management, and product catalog. A Backend-for-Frontend (BFF) layer orchestrates communication between frontend modules and backend microservices, optimizing data aggregation and reducing client-server roundtrips.',
       keyFeatures: [
-        'User authentication and profile management',
-        'Real-time shopping cart and checkout system',
-        'Integrated payment gateway for secure transactions',
-        'Order tracking and notification system',
-        'Admin dashboard for inventory management',
-        'Responsive design for mobile and desktop',
+        'Microservices architecture with independently scalable services',
+        'Microfrontend architecture with module federation for independent deployment',
+        'BFF layer for optimized data aggregation and API orchestration',
+        'AWS Cognito integration for secure user authentication and authorization',
+        'Real-time shopping cart with event-driven updates',
+        'Decoupled frontend modules (User, Product, Navigation)',
+        'Inter-service communication via REST APIs',
+        'Independent CI/CD pipelines for each microservice and microfrontend',
       ],
       techStack: {
-        backend: ['Node.js', 'Express'],
-        frontend: ['React', 'JavaScript', 'CSS'],
-        database: ['MongoDB'],
-        tools: ['Git', 'Postman', 'VS Code'],
+        backend: ['Node.js', 'Express', 'Microservices', 'RESTful APIs', 'AWS Cognito'],
+        frontend: ['React', 'JavaScript', 'Single-SPA', 'CSS'],
+        database: ['PostgreSQL'],
+        tools: ['Git', 'Postman', 'VS Code', 'AWS'],
       },
-      categories: ['Full Stack', 'Web', 'E-commerce'],
-      year: 2023,
-      image: '/images/projects/food-store.jpg',
+      architectureDiagrams: {
+        system: '/images/projects/food-store/use-case.png',
+        logical: '/images/projects/food-store/logical-diagram.png',
+        deployment: '/images/projects/food-store/deployment-diagram.png',
+      },
+      categories: ['Full Stack', 'Web', 'E-commerce', 'Microservices'],
+      featured: true,
+      year: 2024,
+      image: '/images/projects/food-store/image1.png',
+      screenshots: [
+        '/images/projects/food-store/image1.png',
+        '/images/projects/food-store/image2.png',
+        '/images/projects/food-store/image3.png',
+        '/images/projects/food-store/image4.png',
+      ],
       color: 'green',
+      githubUrl: 'https://github.com/Sysco-Project-Summit-Vishwani',
+      mediumArticleUrl: 'https://medium.com/devops-dev/micro-service-architecture-42d6bf1b9581'
     },
     {
       id: '2',
       slug: 'datacanvas',
       title: 'DataCanvas IoT Monitoring Platform',
-      description: 'A full-stack IoT data management platform that simplifies device connectivity, real-time data streaming, and visualization for developers building IoT applications.',
-      overview: 'DataCanvas is a comprehensive IoT data management solution designed to reduce the complexity of building IoT applications. The platform provides real-time MQTT communication, device management, and powerful data visualization tools. It enables developers to focus on building features rather than managing infrastructure.',
+      description: 'A full-stack IoT monitoring platform that enables real-time device data ingestion, storage, visualization, and controlled data sharing via public APIs.',
+      overview: 'DataCanvas is an IoT data platform built to simplify real-time device monitoring and data access for developers and organizations. The platform focuses on reliable MQTT-based data ingestion, secure device management, and intuitive data visualization. Phase 1 of the project concentrated on building a stable core system for collecting, storing, and exposing IoT data, while later phases introduced public data access and developer tooling.',
       keyFeatures: [
-        'Real-time device connectivity using MQTT protocol',
-        'Customizable dashboards with drag-and-drop widgets',
-        'RESTful API for seamless third-party integrations',
-        'Role-based access control and team collaboration',
-        'Time-series data storage and advanced analytics',
-        'Alert system for threshold-based notifications',
+        // Phase 1 – Core Platform
+        'Real-time IoT data ingestion using MQTT protocol',
+        'Centralized device and sensor management',
+        'Live data visualization through web dashboards',
+        'Secure authentication and role-based access control',
+        'Time-series data storage for sensor readings',
+
+        // Phase 1.5 – Public API
+        'Public REST API for external applications to access IoT data',
+        'Token-based authentication for controlled data sharing',
+        'API usage scoped per project and device',
+
+        // Phase 2 – Developer Enablement
+        'NPM package published to simplify Public API consumption',
       ],
+      phaseBreakdown: {
+        phase1: {
+          title: 'Core IoT Monitoring Platform',
+          highlights: [
+            'MQTT-based real-time data pipeline',
+            'Backend services for device registration and data ingestion',
+            'Web dashboard for monitoring live and historical sensor data',
+            'User authentication and authorization flows',
+            'Initial deployment-ready architecture',
+          ],
+        },
+        phase2: {
+          title: 'Public API & Developer Tooling',
+          highlights: [
+            'Public REST API exposed for third-party websites and applications',
+            'Access token generation and management',
+            'Reusable NPM package wrapping the Public API',
+            'Improved developer experience for external integrations',
+          ],
+        },
+      },
+      
       techStack: {
-        backend: ['Node.js', 'Express', 'MQTT Broker'],
+        backend: ['Node.js', 'Express', 'MQTT Broker', 'REST APIs'],
         frontend: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Chart.js'],
-        database: ['PostgreSQL', 'TimescaleDB', 'Redis'],
-        tools: ['Docker', 'Nginx', 'GitHub Actions', 'AWS'],
+        database: ['PostgreSQL'],
+        tools: ['Docker', 'Nginx', 'GitHub Actions', 'AWS', 'NPM'],
       },
       architectureDiagrams: {
         system: '/images/projects/datacanvas/system-architecture.png',
       },
       categories: ['Full Stack', 'IoT', 'Web'],
-      year: 2024,
-      image: '/images/projects/datacanvas.jpg',
+      featured: true,
+      year: 2024-2026,
+      image: '/images/projects/datacanvas/image1.png',
+      screenshots: [
+        '/images/projects/datacanvas/image1.png',
+        '/images/projects/datacanvas/image2.png',
+        '/images/projects/datacanvas/image3.png',
+        '/images/projects/datacanvas/image4.png',
+        '/images/projects/datacanvas/image5.png',       
+        '/images/projects/datacanvas/image6.png',
+        '/images/projects/datacanvas/image7.png',
+        '/images/projects/datacanvas/image8.png',
+        '/images/projects/datacanvas/image9.png',
+      
+      ],
       color: 'green',
+      githubUrl:'https://github.com/Datacanvas-IoT'
     },
     {
       id: '3',
       slug: 'predictive-maintenance',
-      title: 'Predictive Maintenance System',
-      description: 'An IoT-based predictive maintenance solution using machine learning to forecast equipment failures and optimize maintenance schedules.',
-      overview: 'This system leverages IoT sensors and machine learning algorithms to predict equipment failures before they occur. By analyzing sensor data in real-time, the system provides actionable insights to maintenance teams, reducing downtime and maintenance costs.',
+      title: 'Predictive Maintenance Monitoring System',
+      description: 'An IoT-based predictive maintenance solution using XGBoost machine learning model to forecast equipment failures with 97.95% accuracy, monitoring multiple machine conditions in real-time.',
+      overview: 'A comprehensive predictive maintenance system designed to prevent unexpected machinery breakdowns in manufacturing environments. The system leverages IoT sensors and an XGBoost classifier to monitor critical parameters including temperature, pressure, motor power, vibration, and volume flow. By analyzing real-time sensor data through MQTT protocol, the system predicts five key machine conditions: cooler condition, internal pump leakage, hydraulic accumulator status, and overall stability, achieving an impressive 97.95% accuracy rate. This solution helps industries reduce maintenance costs, increase equipment lifespan, and prevent costly production outages.',
       keyFeatures: [
-        'Real-time sensor data collection and monitoring',
-        'Machine learning models for failure prediction',
-        'Anomaly detection and alert system',
-        'Maintenance scheduling optimization',
-        'Historical data analysis and reporting',
-        'Dashboard for equipment health visualization',
+        'Real-time monitoring using IoT sensors (temperature, pressure, vibration, voltage, current, flow)',
+        'XGBoost classifier model with 97.95% overall accuracy',
+        'Predicts 5 critical machine conditions simultaneously',
+        'MQTT-based real-time data gathering and processing',
+        'Flask backend with machine learning model integration',
+        'Interactive dashboard for equipment health visualization',
+        'Preventive maintenance alerts and notifications',
+        'High scalability and customizability for various industries',
       ],
       techStack: {
-        backend: ['Python', 'Flask', 'TensorFlow'],
+        backend: ['Python', 'Flask', 'XGBoost', 'MQTT Client'],
         frontend: ['React', 'TypeScript', 'Chart.js'],
-        database: ['PostgreSQL', 'InfluxDB'],
-        tools: ['MQTT', 'Docker', 'scikit-learn'],
+        tools: ['MQTT Broker', 'ESP32', 'IoT Sensors', 'scikit-learn'],
       },
-      categories: ['AI', 'IoT', 'ML'],
+      architectureDiagrams: {
+        system: '/images/projects/predictive-maintenance/technical-architecture.png',
+      },
+      categories: ['AI', 'IoT', 'ML', '4IR'],
+      featured: true,
       year: 2024,
-      image: '/images/projects/predictive-maintenance.jpg',
+      image: '/images/projects/predictive-maintenance/image1.png',
+      screenshots:[
+        '/images/projects/predictive-maintenance/image1.png',
+        '/images/projects/predictive-maintenance/image2.png',
+        '/images/projects/predictive-maintenance/image3.png'
+      ],
       color: 'cyan',
+      githubUrl:'https://github.com/vshwanilgv/predictive_maintenance',
+      mediumArticleUrl:'https://drive.google.com/drive/u/0/folders/12eTFlABMUEJnPQlhH5pUYY29yKiB0g86'
     },
     {
       id: '4',
@@ -322,21 +410,27 @@ export const PORTFOLIO_DATA: PortfolioContent = {
       keyFeatures: [
         'Computer vision-based obstacle detection',
         'Real-time path planning and navigation',
-        'GPS and sensor fusion for accurate positioning',
         'Autonomous takeoff, flight, and landing',
         'Mission planning and execution system',
         'Live video streaming and telemetry',
       ],
       techStack: {
-        backend: ['Python', 'ROS', 'C++'],
-        frontend: ['React', 'JavaScript'],
-        database: ['SQLite'],
-        tools: ['OpenCV', 'MAVLink', 'PX4', 'Gazebo'],
+        backend: ['Python'],
+        hardware: ['DJI Tello '],
+        tools: ['OpenCV', 'MAVLink', 'PX4', 'Gymnasium'],
+      },
+      architectureDiagrams:{
+        system:'/images/projects/uav-navigation/architecture.png',
       },
       categories: ['AI', 'Robotics', 'Research'],
-      year: 2024,
-      image: '/images/projects/autonomous-uav.jpg',
+      year: 2025,
+      githubUrl:'https://github.com/vshwanilgv/autonuomous-uav-navigation',
+      image: '/images/projects/uav-navigation/uav.jpg',
       color: 'blue',
+      screenshots:[
+        '/images/projects/uav-navigation/UAV-navig.png',
+      ],
+      mediumArticleUrl:'https://docs.google.com/presentation/d/1kkG5yvwm-0pti57gjArGpWNWZ_9tTVfA/edit?usp=sharing&ouid=116669971725774873755&rtpof=true&sd=true',
     },
     {
       id: '5',
@@ -347,7 +441,6 @@ export const PORTFOLIO_DATA: PortfolioContent = {
       keyFeatures: [
         'Multi-layered decision architecture for intelligent robot planning',
         'Integration of computer vision with natural language understanding',
-        '87% success rate in complex navigation tasks',
         'Cross-platform compatibility with different robot systems',
         'Real-time adaptation to dynamic environments',
         'Natural language command processing for intuitive control',
@@ -370,6 +463,7 @@ export const PORTFOLIO_DATA: PortfolioContent = {
         '/images/projects/vla-framework/screenshot4.png',
       ],
       categories: ['AI', 'Research', 'Robotics'],
+      featured: true,
       year: 2025,
       image: '/images/projects/vla-framework.jpg',
       color: 'blue',
@@ -377,27 +471,28 @@ export const PORTFOLIO_DATA: PortfolioContent = {
     {
       id: '6',
       slug: 'gemma-trainer',
-      title: 'Gemma 3 Trainer',
+      title: 'Fine Tunning SLAM - Gemma 3 ',
       description: 'A specialized training pipeline for fine-tuning Google\'s Gemma 3 model on astronomy datasets, enabling domain-specific language understanding for research applications.',
       overview: 'This project focuses on adapting large language models for domain-specific tasks in astronomy research. By fine-tuning Gemma 3 on curated astronomy datasets, the model can assist researchers in literature review, data analysis, and hypothesis generation. The system achieves state-of-the-art performance on astronomy-specific tasks.',
       keyFeatures: [
-        'Efficient fine-tuning using LoRA and QLoRA techniques',
-        'Processed and cleaned 100K+ astronomy research papers',
-        '92% accuracy on astronomy-specific Q&A tasks',
-        'Reduced inference time by 40% through quantization',
-        'Custom evaluation metrics for astronomical reasoning',
-        'Interactive web interface for model testing',
+        // 'Efficient fine-tuning using LoRA and QLoRA techniques',
+        // 'Processed and cleaned 100K+ astronomy research papers',
+        // '92% accuracy on astronomy-specific Q&A tasks',
+        // 'Reduced inference time by 40% through quantization',
+        // 'Custom evaluation metrics for astronomical reasoning',
+        // 'Interactive web interface for model testing',
       ],
       techStack: {
         backend: ['Python', 'PyTorch', 'Transformers'],
-        frontend: ['Streamlit', 'Gradio'],
-        database: ['PostgreSQL', 'Vector Database (Pinecone)'],
-        tools: ['Hugging Face', 'CUDA', 'Weights & Biases', 'Docker'],
+        tools: ['Hugging Face', 'Google Colab (T4 GPU)'],
       },
-      categories: ['AI', 'Research', 'ML'],
-      year: 2024,
-      image: '/images/projects/gemma-trainer.jpg',
+      categories: ['AI', 'SLM', 'Fine Tunning'],
+      year: 2026,
+      image: '/images/projects/gemma/image1.png',
       color: 'yellow',
+      githubUrl: 'https://github.com/vshwanilgv/FineTuneAstroQnA',
+      mediumArticleUrl:'https://blog.stackademic.com/finetuning-gemma-1b-what-i-learned-8fa9bf0fac65',
+      huggingFaceUrl:'vshwanilgv/gemma-3-1b-it-astro-mcqa'
     },
     {
       id: '7',
@@ -432,11 +527,11 @@ export const PORTFOLIO_DATA: PortfolioContent = {
       overview: 'Developed a dedicated platform to manage IEEE WIE membership operations including member registration, event management, payment processing, and communication tools. The system streamlines administrative tasks and enhances member engagement.',
       keyFeatures: [
         'Member registration and profile management',
-        'Event creation and RSVP system',
-        'Payment integration for membership fees',
+        'Adding Volunteer Contributions and Achievements',
+        'Public dashboard showcasing member achievements and contributions',
         'Email notification and communication tools',
-        'Admin dashboard for member analytics',
-        'Certificate generation for events and workshops',
+        'Admin dashboard for member analytics and approving member roles and contributions',
+        'Service letter generation for members based on their contributions and roles',
       ],
       techStack: {
         backend: ['Node.js', 'Express', 'REST API'],
@@ -479,7 +574,7 @@ export const PORTFOLIO_DATA: PortfolioContent = {
       slug: 'verifica-fingerprint',
       title: 'Verifica Fingerprint Verification System',
       description: 'A biometric authentication system combining hardware and software for secure fingerprint-based verification and access control.',
-      overview: 'Verifica is a complete biometric authentication solution that integrates fingerprint scanning hardware with a robust software platform. The system provides secure, fast, and reliable user verification for access control applications.',
+      overview: 'Verifica is a complete biometric authentication solution that integrates fingerprint scanning hardware with a robust software platform. The system provides secure, fast, and reliable user verification for access control applications. The System is currently used by CODL University of Moratuwa',
       keyFeatures: [
         'Fingerprint capture and processing',
         'Real-time fingerprint matching and verification',
@@ -503,25 +598,27 @@ export const PORTFOLIO_DATA: PortfolioContent = {
       id: '11',
       slug: 'attendance-monitoring',
       title: 'Faculty Access Control System',
-      description: 'Faculty access control system with automated attendance tracking, RFID integration, and comprehensive reporting capabilities.',
-      overview: 'A smart attendance monitoring system designed for educational institutions to automate attendance tracking and access control. The system uses RFID technology to record entries and exits, generating detailed reports for faculty and administration.',
+      description: 'An ESP32-powered RFID attendance system with a web application for real-time student attendance tracking, monitoring, and reporting.',
+      overview: 'A smart IoT-based attendance marking system developed for the Faculty of IT to automate student attendance tracking. The system uses an ESP32 microcontroller integrated with an RFID reader to scan student ID cards and record attendance in real-time. The captured data is transmitted to a backend server and displayed through a web application dashboard for faculty administrators. The system improves accuracy, reduces manual work, and provides detailed attendance analytics and reporting.',
       keyFeatures: [
-        'RFID-based automated attendance tracking',
-        'Real-time entry and exit logging',
-        'Faculty and student database management',
-        'Automated report generation and analytics',
-        'Admin dashboard for attendance monitoring',
-        'Export functionality for attendance records',
+        'ESP32-based RFID card scanning device',
+        'Real-time attendance recording via WiFi',
+        'Student ID card authentication system',
+        'Web-based admin dashboard for monitoring',
+        'Attendance history tracking per student',
+        'Automated report generation (daily/monthly)',
+        'Role-based access control for administrators',
+        'Export attendance records (CSV/PDF)',
       ],
       techStack: {
-        backend: ['Python', 'Flask', 'REST API'],
-        frontend: ['React', 'JavaScript', 'Bootstrap'],
-        database: ['MySQL'],
-        tools: ['RFID Reader', 'Arduino', 'Git'],
+        hardware: ['ESP32', 'MFRC522 RFID Module', 'RFID Student ID Cards'],
+        backend: ['Node.js / Flask (REST API)'],
+        frontend: ['React / HTML, CSS, JavaScript'],
+        tools: ['Arduino IDE', 'Git', 'Postman'],
       },
       categories: ['Full Stack', 'IoT', 'Hardware'],
       year: 2023,
-      image: '/images/projects/attendance-system.jpg',
+      image: '/images/projects/attendance-monitoring/fac-access.jpeg',
       color: 'blue',
     },
     {
@@ -574,31 +671,31 @@ export const PORTFOLIO_DATA: PortfolioContent = {
       image: '/images/projects/ies-labs.jpg',
       color: 'cyan',
     },
-    {
-      id: '14',
-      slug: 'entrepreneurs-club-website',
-      title: 'Entrepreneurs Club Official Website',
-      description: 'Dynamic website for the Entrepreneurs Club featuring events, member resources, startup showcase, and networking opportunities.',
-      overview: 'Created the official website for the Entrepreneurs Club to connect aspiring entrepreneurs, showcase startup projects, and promote entrepreneurship events. The platform serves as a hub for networking, resources, and community building.',
-      keyFeatures: [
-        'Event calendar and registration system',
-        'Startup showcase and pitch platform',
-        'Member directory and networking tools',
-        'Resource library for entrepreneurs',
-        'Blog and success story section',
-        'Social media integration and sharing',
-      ],
-      techStack: {
-        backend: ['Node.js', 'Express'],
-        frontend: ['React', 'TypeScript', 'Tailwind CSS'],
-        database: ['MongoDB'],
-        tools: ['Git', 'Vercel', 'Figma'],
-      },
-      categories: ['Full Stack', 'Web', 'Community'],
-      year: 2024,
-      image: '/images/projects/entrepreneurs-club.jpg',
-      color: 'green',
-    },
+    // {
+    //   id: '14',
+    //   slug: 'entrepreneurs-club-website',
+    //   title: 'Entrepreneurs Club Official Website',
+    //   description: 'Dynamic website for the Entrepreneurs Club featuring events, member resources, startup showcase, and networking opportunities.',
+    //   overview: 'Created the official website for the Entrepreneurs Club to connect aspiring entrepreneurs, showcase startup projects, and promote entrepreneurship events. The platform serves as a hub for networking, resources, and community building.',
+    //   keyFeatures: [
+    //     'Event calendar and registration system',
+    //     'Startup showcase and pitch platform',
+    //     'Member directory and networking tools',
+    //     'Resource library for entrepreneurs',
+    //     'Blog and success story section',
+    //     'Social media integration and sharing',
+    //   ],
+    //   techStack: {
+    //     backend: ['Node.js', 'Express'],
+    //     frontend: ['React', 'TypeScript', 'Tailwind CSS'],
+    //     database: ['MongoDB'],
+    //     tools: ['Git', 'Vercel', 'Figma'],
+    //   },
+    //   categories: ['Full Stack', 'Web', 'Community'],
+    //   year: 2024,
+    //   image: '/images/projects/entrepreneurs-club.jpg',
+    //   color: 'green',
+    // },
   ],
 };
 

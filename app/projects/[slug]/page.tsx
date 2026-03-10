@@ -2,8 +2,10 @@ import React from 'react';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowLeft, CheckCircle2, Github, ExternalLink } from 'lucide-react';
+import { ArrowLeft, CheckCircle2, Github, ExternalLink, BookOpen, Brain } from 'lucide-react';
 import { getProjectBySlug, getAllProjects } from '@/config/content';
+import DiagramTabs from '@/components/DiagramTabs';
+import ScreenshotsGallery from '@/components/ScreenshotsGallery';
 
 interface ProjectPageProps {
   params: {
@@ -80,10 +82,34 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
                   href={project.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white rounded-full text-sm font-semibold transition-all group"
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-green-600/20 hover:bg-green-600/30 border border-green-500/30 text-green-400 hover:text-green-300 rounded-full text-sm font-semibold transition-all group"
                 >
                   <Github className="w-4 h-4" />
                   View on GitHub
+                  <ExternalLink className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                </a>
+              )}
+              {project.mediumArticleUrl && (
+                <a
+                  href={project.mediumArticleUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-green-600/20 hover:bg-green-600/30 border border-green-500/30 text-green-400 hover:text-green-300 rounded-full text-sm font-semibold transition-all group"
+                >
+                  <BookOpen className="w-4 h-4" />
+                  Read Article Series
+                  <ExternalLink className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                </a>
+              )}
+              {project.huggingFaceUrl && (
+                <a
+                  href={project.huggingFaceUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-cyan-600/20 hover:bg-cyan-600/30 border border-cyan-500/30 text-cyan-400 hover:text-cyan-300 rounded-full text-sm font-semibold transition-all group"
+                >
+                  <Brain className="w-4 h-4" />
+                  View Hugging Face Model
                   <ExternalLink className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </a>
               )}
@@ -113,44 +139,11 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
 
           {/* Architecture Diagrams */}
           {project.architectureDiagrams && (
-            <section className="mb-16">
-              <h2 className="text-3xl font-bold text-slate-100 mb-6 flex items-center gap-3">
-                <span className={`w-1 h-8 rounded-full ${colors.bg}`} />
-                Architecture Diagrams
-              </h2>
-              
-              <div className="space-y-8">
-                {/* System Architecture */}
-                {project.architectureDiagrams.system && (
-                  <div>
-                    <h3 className="text-xl font-semibold text-slate-200 mb-4">System Architecture</h3>
-                    <div className={`relative aspect-video w-full rounded-xl overflow-hidden border-2 ${colors.border} bg-slate-900/50`}>
-                      <Image
-                        src={project.architectureDiagrams.system}
-                        alt={`${project.title} - System Architecture`}
-                        fill
-                        className="object-contain p-4"
-                      />
-                    </div>
-                  </div>
-                )}
-
-                {/* Deployment Architecture */}
-                {project.architectureDiagrams.deployment && (
-                  <div>
-                    <h3 className="text-xl font-semibold text-slate-200 mb-4">Deployment Architecture</h3>
-                    <div className={`relative aspect-video w-full rounded-xl overflow-hidden border-2 ${colors.border} bg-slate-900/50`}>
-                      <Image
-                        src={project.architectureDiagrams.deployment}
-                        alt={`${project.title} - Deployment Architecture`}
-                        fill
-                        className="object-contain p-4"
-                      />
-                    </div>
-                  </div>
-                )}
-              </div>
-            </section>
+            <DiagramTabs 
+              architectureDiagrams={project.architectureDiagrams}
+              projectTitle={project.title}
+              colors={colors}
+            />
           )}
 
           {/* Key Features */}
@@ -172,29 +165,47 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
             </div>
           </section>
 
-          {/* Screenshots */}
-          {project.screenshots && project.screenshots.length > 0 && (
+          {/* Phase Breakdown */}
+          {project.phaseBreakdown && (
             <section className="mb-16">
               <h2 className="text-3xl font-bold text-slate-100 mb-6 flex items-center gap-3">
                 <span className={`w-1 h-8 rounded-full ${colors.bg}`} />
-                Screenshots
+                Phase Breakdown
               </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {project.screenshots.map((screenshot, index) => (
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                {(Object.entries(project.phaseBreakdown) as Array<[string, { title: string; highlights: string[] }]>)
+                  .map(([phaseKey, phase]) => (
                   <div
-                    key={index}
-                    className={`relative aspect-video w-full rounded-xl overflow-hidden border-2 ${colors.border} bg-slate-900/50 hover:scale-[1.02] transition-transform duration-300`}
+                    key={phaseKey}
+                    className={`p-6 bg-slate-900/50 border ${colors.border} rounded-xl`}
                   >
-                    <Image
-                      src={screenshot}
-                      alt={`${project.title} - Screenshot ${index + 1}`}
-                      fill
-                      className="object-cover"
-                    />
+                    <p className="text-xs uppercase tracking-wide text-slate-500 mb-2">
+                      {phaseKey.replace('phase', 'Phase ')}
+                    </p>
+                    <h3 className="text-xl font-semibold text-slate-100 mb-4">
+                      {phase.title}
+                    </h3>
+                    <ul className="space-y-3">
+                      {phase.highlights.map((highlight: string) => (
+                        <li key={highlight} className="flex items-start gap-3">
+                          <CheckCircle2 className={`w-4 h-4 ${colors.text} flex-shrink-0 mt-0.5`} />
+                          <span className="text-slate-300">{highlight}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 ))}
               </div>
             </section>
+          )}
+
+          {/* Screenshots */}
+          {project.screenshots && project.screenshots.length > 0 && (
+            <ScreenshotsGallery 
+              screenshots={project.screenshots}
+              projectTitle={project.title}
+              colors={colors}
+            />
           )}
 
           {/* Technology Stack */}
@@ -203,6 +214,8 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
               <span className={`w-1 h-8 rounded-full ${colors.bg}`} />
               Technology Stack
             </h2>
+
+
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Backend */}
@@ -214,6 +227,25 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
                   </h3>
                   <div className="flex flex-wrap gap-2">
                     {project.techStack.backend.map((tech) => (
+                      <span
+                        key={tech}
+                        className="px-3 py-1.5 bg-slate-800 text-slate-300 text-sm rounded-md"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {project.techStack.hardware && project.techStack.hardware.length > 0 && (
+                <div className="bg-slate-900/50 border border-slate-800 rounded-xl p-6">
+                  <h3 className="text-xl font-semibold text-slate-100 mb-4 flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-purple-400" />
+                    Hardware
+                  </h3>
+                  <div className="flex flex-wrap gap-2">
+                    {project.techStack.hardware.map((tech) => (
                       <span
                         key={tech}
                         className="px-3 py-1.5 bg-slate-800 text-slate-300 text-sm rounded-md"
