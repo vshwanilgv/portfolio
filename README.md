@@ -219,6 +219,7 @@ projects: [
     },
     categories: ['Full Stack', 'Web', 'AI'],  // For filtering/badges
     githubUrl: 'https://github.com/username/repo',  // Optional
+    hostedUrl: 'https://your-live-site.com',  // Optional
     screenshots: [  // Optional
       '/images/projects/project-slug/screenshot1.png',
       '/images/projects/project-slug/screenshot2.png',
