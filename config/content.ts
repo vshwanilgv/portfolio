@@ -508,6 +508,9 @@ export const PORTFOLIO_DATA: PortfolioContent = {
       id: '7',
       slug: 'rgb-ir-fusion',
       title: 'RGB, IR Multi-Modal Fusion',
+      architectureDiagrams: {
+        system: '/images/projects/rgb-ir/PBL_REPO.png',
+      },
       description: 'An advanced computer vision system that fuses RGB and infrared imaging for enhanced object detection and recognition in challenging environmental conditions.',
       overview: 'This research project develops a multi-modal fusion approach combining RGB and infrared (IR) imaging to improve object detection accuracy in low-light and adverse weather conditions. The system leverages deep learning techniques to intelligently fuse complementary information from both modalities, achieving superior performance compared to single-modal approaches.',
       keyFeatures: [
@@ -526,8 +529,12 @@ export const PORTFOLIO_DATA: PortfolioContent = {
       },
       categories: ['AI', 'Computer Vision', 'Research'],
       year: 2024,
-      image: '/images/projects/rgb-ir-fusion.jpg',
+      image: '/images/projects/rgb-ir/images.jpeg',
       color: 'cyan',
+      screenshots: [
+        '/images/projects/rgb-ir/PBL_REPO(1).png',
+        '/images/projects/rgb-ir/PBL_REPO(2).png',
+      ],
     },
     {
       id: '8',
@@ -580,7 +587,12 @@ export const PORTFOLIO_DATA: PortfolioContent = {
       },
       categories: ['Full Stack', 'Web', 'Enterprise'],
       year: 2023,
-      image: '/images/projects/kiti/kiti1.jpg',
+      image: '/images/projects/kiti/kiti1.png',
+      screenshots: [
+        '/images/projects/kiti/kiti1.png',
+        '/images/projects/kiti/kiti2.png',
+        '/images/projects/kiti/kiti3.png',
+      ],
       color: 'green',
     },
     {
@@ -605,7 +617,7 @@ export const PORTFOLIO_DATA: PortfolioContent = {
       },
       categories: ['Full Stack', 'Security', 'Hardware'],
       year: 2023,
-      image: '/images/projects/verifica.jpg',
+      image: '/images/projects/codl/codl.jpeg',
       color: 'yellow',
     },
     {
@@ -728,7 +740,7 @@ export const PORTFOLIO_DATA: PortfolioContent = {
       title: 'Featured Projects',
       gradientFrom: 'from-yellow-500',
       gradientTo: 'to-orange-500',
-      projectSlugs: ['food-store-web-app', 'datacanvas', 'predictive-maintenance'],
+      projectSlugs: ['food-store-web-app', 'datacanvas', 'predictive-maintenance','autonomous-uav'],
     },
     {
       id: 'ai-machine-learning',
