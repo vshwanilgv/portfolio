@@ -4,29 +4,28 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { ProjectCard } from '@/components/ui';
-import { getAllProjects, Project } from '@/config/content';
+import { getProjectShowcaseSections, Project } from '@/config/content';
 
 export const ProjectsGrid: React.FC = () => {
-  const allProjects = getAllProjects();
+  const showcaseSections = getProjectShowcaseSections();
+  const FEATURED_SECTION_ID = 'featured-projects';
+  const usedNonFeaturedSlugs = new Set<string>();
 
-  // Categorize projects
-  const featuredProjects = allProjects.filter(p => p.featured);
-  
-  const aiMlProjects = allProjects.filter(p => 
-    p.categories.some(cat => ['AI', 'ML', 'Computer Vision', 'SLM', 'Fine Tunning'].includes(cat))
-  );
-  
-  const hardwareProjects = allProjects.filter(p => 
-    p.categories.some(cat => ['Hardware', 'IoT'].includes(cat))
-  );
-  
-  const researchProjects = allProjects.filter(p => 
-    p.categories.some(cat => ['Research', 'Robotics'].includes(cat))
-  );
-  
-  const softwareProjects = allProjects.filter(p => 
-    p.categories.some(cat => ['Full Stack', 'Web', 'Enterprise', 'E-commerce', 'Microservices', 'Community', 'Corporate', 'Security'].includes(cat))
-  );
+  const uniqueShowcaseSections = showcaseSections.map((section) => ({
+    ...section,
+    projects: section.projects.filter((project) => {
+      if (section.id === FEATURED_SECTION_ID) {
+        return true;
+      }
+
+      if (usedNonFeaturedSlugs.has(project.slug)) {
+        return false;
+      }
+
+      usedNonFeaturedSlugs.add(project.slug);
+      return true;
+    }),
+  }));
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -87,40 +86,15 @@ export const ProjectsGrid: React.FC = () => {
 
   return (
     <section className="section-container">
-      <CategorySection 
-        title="Featured Projects" 
-        projects={featuredProjects} 
-        gradientFrom="from-yellow-500" 
-        gradientTo="to-orange-500" 
-      />
-      
-      <CategorySection 
-        title="AI & Machine Learning" 
-        projects={aiMlProjects} 
-        gradientFrom="from-blue-500" 
-        gradientTo="to-cyan-500" 
-      />
-      
-      <CategorySection 
-        title="Hardware & IoT" 
-        projects={hardwareProjects} 
-        gradientFrom="from-green-500" 
-        gradientTo="to-emerald-500" 
-      />
-      
-      <CategorySection 
-        title="Research" 
-        projects={researchProjects} 
-        gradientFrom="from-purple-500" 
-        gradientTo="to-pink-500" 
-      />
-      
-      <CategorySection 
-        title="Software Development" 
-        projects={softwareProjects} 
-        gradientFrom="from-indigo-500" 
-        gradientTo="to-blue-500" 
-      />
+      {uniqueShowcaseSections.map((section) => (
+        <CategorySection
+          key={section.id}
+          title={section.title}
+          projects={section.projects}
+          gradientFrom={section.gradientFrom}
+          gradientTo={section.gradientTo}
+        />
+      ))}
     </section>
   );
 };

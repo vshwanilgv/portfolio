@@ -87,11 +87,20 @@ export interface Project {
   color: AccentColor;
 }
 
+export interface ProjectShowcaseSection {
+  id: string;
+  title: string;
+  gradientFrom: string;
+  gradientTo: string;
+  projectSlugs: string[];
+}
+
 export interface PortfolioContent {
   profile: Profile;
   stats: Stat[];
   journey: JourneyItem[];
   projects: Project[];
+  projectShowcaseSections: ProjectShowcaseSection[];
 }
 
 export const PORTFOLIO_DATA: PortfolioContent = {
@@ -713,6 +722,43 @@ export const PORTFOLIO_DATA: PortfolioContent = {
     //   color: 'green',
     // },
   ],
+  projectShowcaseSections: [
+    {
+      id: 'featured-projects',
+      title: 'Featured Projects',
+      gradientFrom: 'from-yellow-500',
+      gradientTo: 'to-orange-500',
+      projectSlugs: ['food-store-web-app', 'datacanvas', 'predictive-maintenance'],
+    },
+    {
+      id: 'ai-machine-learning',
+      title: 'AI & Machine Learning',
+      gradientFrom: 'from-blue-500',
+      gradientTo: 'to-cyan-500',
+      projectSlugs: ['gemma-trainer', 'rgb-ir-fusion', 'predictive-maintenance'],
+    },
+    {
+      id: 'hardware-iot',
+      title: 'Hardware & IoT',
+      gradientFrom: 'from-green-500',
+      gradientTo: 'to-emerald-500',
+      projectSlugs: ['attendance-monitoring', 'verifica-fingerprint'],
+    },
+    {
+      id: 'research',
+      title: 'Research',
+      gradientFrom: 'from-purple-500',
+      gradientTo: 'to-pink-500',
+      projectSlugs: ['autonomous-uav', 'vla-framework'],
+    },
+    {
+      id: 'software-development',
+      title: 'Software Development',
+      gradientFrom: 'from-indigo-500',
+      gradientTo: 'to-blue-500',
+      projectSlugs: ['food-store-web-app', 'datacanvas', 'ieee-wie-membership', 'kiti-iwm', 'ieee-wie-website', 'ies-labs-website'],
+    },
+  ],
 };
 
 export const getJourneyByType = (type: JourneyType): JourneyItem[] => {
@@ -721,6 +767,16 @@ export const getJourneyByType = (type: JourneyType): JourneyItem[] => {
 
 export const getAllProjects = (): Project[] => {
   return PORTFOLIO_DATA.projects;
+};
+
+export const getProjectShowcaseSections = (): Array<ProjectShowcaseSection & { projects: Project[] }> => {
+  const projectsBySlug = new Map(PORTFOLIO_DATA.projects.map((project) => [project.slug, project]));
+  return PORTFOLIO_DATA.projectShowcaseSections.map((section) => ({
+    ...section,
+    projects: section.projectSlugs
+      .map((slug) => projectsBySlug.get(slug))
+      .filter((project): project is Project => Boolean(project)),
+  }));
 };
 
 export const getProjectBySlug = (slug: string): Project | undefined => {

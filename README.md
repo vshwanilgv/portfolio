@@ -233,7 +233,27 @@ projects: [
     color: 'blue',  // Accent color: 'blue' | 'green' | 'yellow' | 'cyan'
   },
 ],
+
+projectShowcaseSections: [
+  {
+    id: 'featured-projects',
+    title: 'Featured Projects',
+    gradientFrom: 'from-yellow-500',
+    gradientTo: 'to-orange-500',
+    projectSlugs: ['project-slug-1', 'project-slug-2'], // Exact order shown on /projects
+  },
+  {
+    id: 'ai-machine-learning',
+    title: 'AI & Machine Learning',
+    gradientFrom: 'from-blue-500',
+    gradientTo: 'to-cyan-500',
+    projectSlugs: ['project-slug-3'],
+  },
+],
 ```
+
+`projectShowcaseSections` is the source of truth for the `/projects` page grouping.
+This avoids repetition because each project is assigned by slug, and the UI renders it once in the first matching section.
 
 ### 5. Add Images
 
