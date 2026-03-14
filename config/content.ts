@@ -532,8 +532,8 @@ export const PORTFOLIO_DATA: PortfolioContent = {
       image: '/images/projects/rgb-ir/images.jpeg',
       color: 'cyan',
       screenshots: [
-        '/images/projects/rgb-ir/PBL_REPO(1).png',
-        '/images/projects/rgb-ir/PBL_REPO(2).png',
+        '/images/projects/rgb-ir/PBL_REPO (1).png',
+        '/images/projects/rgb-ir/PBL_REPO (2).png',
       ],
     },
     {
@@ -706,6 +706,7 @@ export const PORTFOLIO_DATA: PortfolioContent = {
       categories: ['Full Stack', 'Web', 'Corporate'],
       year: 2023,
       image: '/images/projects/ies-labs.jpg',
+      githubUrl:'https://github.com/ieslabs-fituom/ieslabs-ow',
       color: 'cyan',
     },
     // {
