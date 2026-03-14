@@ -82,7 +82,7 @@ export interface Project {
   mediumArticleUrl?: string;
   huggingFaceUrl?: string;
   screenshots?: string[];
-  year: number;
+  year: number | string;
   image: string;
   color: AccentColor;
 }
@@ -357,7 +357,7 @@ export const PORTFOLIO_DATA: PortfolioContent = {
       },
       categories: ['Full Stack', 'IoT', 'Web'],
       featured: true,
-      year: 2024-2026,
+      year: '2024 - 2026',
       image: '/images/projects/datacanvas/image1.png',
       screenshots: [
         '/images/projects/datacanvas/image1.png',
