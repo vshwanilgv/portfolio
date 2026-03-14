@@ -78,6 +78,7 @@ export interface Project {
   categories: string[];
   featured?: boolean;
   githubUrl?: string;
+  hostedUrl?: string;
   mediumArticleUrl?: string;
   huggingFaceUrl?: string;
   screenshots?: string[];
@@ -86,11 +87,20 @@ export interface Project {
   color: AccentColor;
 }
 
+export interface ProjectShowcaseSection {
+  id: string;
+  title: string;
+  gradientFrom: string;
+  gradientTo: string;
+  projectSlugs: string[];
+}
+
 export interface PortfolioContent {
   profile: Profile;
   stats: Stat[];
   journey: JourneyItem[];
   projects: Project[];
+  projectShowcaseSections: ProjectShowcaseSection[];
 }
 
 export const PORTFOLIO_DATA: PortfolioContent = {
@@ -469,30 +479,30 @@ export const PORTFOLIO_DATA: PortfolioContent = {
       color: 'blue',
     },
     {
-      id: '6',
-      slug: 'gemma-trainer',
-      title: 'Fine Tunning SLAM - Gemma 3 ',
-      description: 'A specialized training pipeline for fine-tuning Google\'s Gemma 3 model on astronomy datasets, enabling domain-specific language understanding for research applications.',
-      overview: 'This project focuses on adapting large language models for domain-specific tasks in astronomy research. By fine-tuning Gemma 3 on curated astronomy datasets, the model can assist researchers in literature review, data analysis, and hypothesis generation. The system achieves state-of-the-art performance on astronomy-specific tasks.',
-      keyFeatures: [
-        // 'Efficient fine-tuning using LoRA and QLoRA techniques',
-        // 'Processed and cleaned 100K+ astronomy research papers',
-        // '92% accuracy on astronomy-specific Q&A tasks',
-        // 'Reduced inference time by 40% through quantization',
-        // 'Custom evaluation metrics for astronomical reasoning',
-        // 'Interactive web interface for model testing',
-      ],
-      techStack: {
-        backend: ['Python', 'PyTorch', 'Transformers'],
-        tools: ['Hugging Face', 'Google Colab (T4 GPU)'],
-      },
-      categories: ['AI', 'SLM', 'Fine Tunning'],
-      year: 2026,
-      image: '/images/projects/gemma/image1.png',
-      color: 'yellow',
-      githubUrl: 'https://github.com/vshwanilgv/FineTuneAstroQnA',
-      mediumArticleUrl:'https://blog.stackademic.com/finetuning-gemma-1b-what-i-learned-8fa9bf0fac65',
-      huggingFaceUrl:'vshwanilgv/gemma-3-1b-it-astro-mcqa'
+    id: '6',
+    slug: 'gemma-trainer',
+    title: 'Fine-Tuning SLMs: Gemma 3 for Astronomy',
+    description: 'A specialized training pipeline for fine-tuning Google\'s Gemma 3 (1B) model on astronomy MCQ datasets using Parameter-Efficient Fine-Tuning (PEFT).',
+    overview: 'This project explores the capacity of Small Language Models (SLMs) to handle domain-specific reasoning. By fine-tuning Gemma 3 using LoRA, the system transforms general-purpose weights into an astronomy expert capable of answering complex multiple-choice questions while maintaining a low computational footprint.',
+    keyFeatures: [
+      'Implemented Parameter-Efficient Fine-Tuning (PEFT) using LoRA to reduce GPU memory overhead',
+      'Comparative analysis of model capacity between Gemma-3-270M and 1B parameters',
+      'Custom data pipeline for formatting raw astronomy MCQs into optimized prompt-answer pairs',
+      'Optimized for resource-constrained environments like Google Colab (T4 GPU)',
+      'Successfully addressed underfitting issues by scaling model capacity while maintaining training efficiency',
+      'Integrated with Hugging Face Transformers for seamless model deployment and sharing',
+    ],
+    techStack: {
+      backend: ['Python', 'PyTorch', 'Transformers', 'PEFT/LoRA'],
+      tools: ['Hugging Face', 'Google Colab (T4 GPU)', 'Gemma 3'],
+    },
+    categories: ['AI', 'SLM', 'Fine-Tuning', 'NLP'],
+    year: 2026,
+    image: '/images/projects/slm/image1.webp',
+    color: 'yellow',
+    githubUrl: 'https://github.com/vshwanilgv/FineTuneAstroQnA',
+    mediumArticleUrl: 'https://blog.stackademic.com/finetuning-gemma-1b-what-i-learned-8fa9bf0fac65',
+    huggingFaceUrl: 'vshwanilgv/gemma-3-1b-it-astro-mcqa'
     },
     {
       id: '7',
@@ -541,7 +551,11 @@ export const PORTFOLIO_DATA: PortfolioContent = {
       },
       categories: ['Full Stack', 'Web', 'Community'],
       year: 2024,
-      image: '/images/projects/ieee-wie-membership.jpg',
+      image: '/images/projects/wie-membership/1.png',
+      screenshots: [
+        '/images/projects/wie-membership/1.png',
+        '/images/projects/wie-membership/2.png',
+      ],
       color: 'yellow',
     },
     {
@@ -566,7 +580,7 @@ export const PORTFOLIO_DATA: PortfolioContent = {
       },
       categories: ['Full Stack', 'Web', 'Enterprise'],
       year: 2023,
-      image: '/images/projects/kiti-iwm.jpg',
+      image: '/images/projects/kiti/kiti1.jpg',
       color: 'green',
     },
     {
@@ -643,8 +657,19 @@ export const PORTFOLIO_DATA: PortfolioContent = {
       },
       categories: ['Full Stack', 'Web', 'Community'],
       year: 2023,
-      image: '/images/projects/ieee-wie-website.jpg',
+      image: '/images/projects/wie/1.png',
       color: 'yellow',
+      screenshots: [
+        '/images/projects/wie/1.png',
+        '/images/projects/wie/2.png',
+        '/images/projects/wie/3.png',
+        '/images/projects/wie/4.png',
+        '/images/projects/wie/5.png',
+        '/images/projects/wie/6.png',
+      ],
+      githubUrl:'https://github.com/vshwanilgv/WIE-web',
+      hostedUrl:'https://ieeewieuom.lk/'
+      
     },
     {
       id: '13',
@@ -697,6 +722,43 @@ export const PORTFOLIO_DATA: PortfolioContent = {
     //   color: 'green',
     // },
   ],
+  projectShowcaseSections: [
+    {
+      id: 'featured-projects',
+      title: 'Featured Projects',
+      gradientFrom: 'from-yellow-500',
+      gradientTo: 'to-orange-500',
+      projectSlugs: ['food-store-web-app', 'datacanvas', 'predictive-maintenance'],
+    },
+    {
+      id: 'ai-machine-learning',
+      title: 'AI & Machine Learning',
+      gradientFrom: 'from-blue-500',
+      gradientTo: 'to-cyan-500',
+      projectSlugs: ['gemma-trainer', 'rgb-ir-fusion', 'predictive-maintenance'],
+    },
+    {
+      id: 'hardware-iot',
+      title: 'Hardware & IoT',
+      gradientFrom: 'from-green-500',
+      gradientTo: 'to-emerald-500',
+      projectSlugs: ['attendance-monitoring', 'verifica-fingerprint'],
+    },
+    {
+      id: 'research',
+      title: 'Research',
+      gradientFrom: 'from-purple-500',
+      gradientTo: 'to-pink-500',
+      projectSlugs: ['autonomous-uav', 'vla-framework'],
+    },
+    {
+      id: 'software-development',
+      title: 'Software Development',
+      gradientFrom: 'from-indigo-500',
+      gradientTo: 'to-blue-500',
+      projectSlugs: ['food-store-web-app', 'datacanvas', 'ieee-wie-membership', 'kiti-iwm', 'ieee-wie-website', 'ies-labs-website'],
+    },
+  ],
 };
 
 export const getJourneyByType = (type: JourneyType): JourneyItem[] => {
@@ -705,6 +767,16 @@ export const getJourneyByType = (type: JourneyType): JourneyItem[] => {
 
 export const getAllProjects = (): Project[] => {
   return PORTFOLIO_DATA.projects;
+};
+
+export const getProjectShowcaseSections = (): Array<ProjectShowcaseSection & { projects: Project[] }> => {
+  const projectsBySlug = new Map(PORTFOLIO_DATA.projects.map((project) => [project.slug, project]));
+  return PORTFOLIO_DATA.projectShowcaseSections.map((section) => ({
+    ...section,
+    projects: section.projectSlugs
+      .map((slug) => projectsBySlug.get(slug))
+      .filter((project): project is Project => Boolean(project)),
+  }));
 };
 
 export const getProjectBySlug = (slug: string): Project | undefined => {

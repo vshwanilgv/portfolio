@@ -2,7 +2,7 @@ import React from 'react';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowLeft, CheckCircle2, Github, ExternalLink, BookOpen, Brain } from 'lucide-react';
+import { ArrowLeft, CheckCircle2, Github, ExternalLink, BookOpen, Brain, Globe } from 'lucide-react';
 import { getProjectBySlug, getAllProjects } from '@/config/content';
 import DiagramTabs from '@/components/DiagramTabs';
 import ScreenshotsGallery from '@/components/ScreenshotsGallery';
@@ -86,6 +86,18 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
                 >
                   <Github className="w-4 h-4" />
                   View on GitHub
+                  <ExternalLink className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                </a>
+              )}
+              {project.hostedUrl && (
+                <a
+                  href={project.hostedUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600/20 hover:bg-blue-600/30 border border-blue-500/30 text-blue-400 hover:text-blue-300 rounded-full text-sm font-semibold transition-all group"
+                >
+                  <Globe className="w-4 h-4" />
+                  Visit Live Website
                   <ExternalLink className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </a>
               )}
