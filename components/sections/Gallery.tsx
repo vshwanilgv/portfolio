@@ -48,6 +48,24 @@ const GALLERY_PHOTOS: GalleryPhoto[] = [
     alt: 'Gallery photo 6',
     caption: 'Robotics Workshop Conducted by IES Labs UoM - Matara Rahuala',
   },
+  {
+    id: 'photo-7',
+    src: '/images/gallery/gallery-7.jpg',
+    alt: 'Gallery photo 7',
+    caption: 'IEEE WIE Annual General Meeting 2026 and Awards Ceremony',
+  },
+  {
+    id: 'photo-8',
+    src: '/images/gallery/gallery-8.jpg',
+    alt: 'Gallery photo 8',
+    caption: 'ICIPRoP 2026 - International Conference on Image Processing and Pattern Recognition',
+  },
+  {
+    id: 'photo-9',
+    src: '/images/gallery/gallery-9.jpg',
+    alt: 'Gallery photo 9',
+    caption: 'ICIPRoP 2026 - International Conference on Image Processing and Pattern Recognition',
+  }
 ];
 
 export const Gallery: React.FC = () => {
