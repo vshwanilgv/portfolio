@@ -111,7 +111,8 @@ export const PORTFOLIO_DATA: PortfolioContent = {
     bio: 'Final year undergraduate at Faculty of IT, University of Moratuwa. Passionate about Full Stack Development, AI, and building impactful solutions.',
     location: 'Sri Lanka',
     email: 'vishwanibhagya2002@gmail.com',
-    avatar: '/images/about/about-me.jpeg',
+    // avatar: '/images/about/about-me.jpeg',
+    avatar: '/images/about/profile1.jpg',
     resume: '/resume/Vishwani-Bhagya-Resume.pdf',
     socials: [
       {
@@ -222,7 +223,7 @@ export const PORTFOLIO_DATA: PortfolioContent = {
       date: '2025 May - 2025 Aug',
       description: 'Developed scalable microservices and worked on enterprise-level applications using modern tech stacks. Contributed to improving system performance and reliability.',
       color: 'green',
-      tags: ['Microservices', 'Java', 'React', 'Spring Boot'],
+      tags: ['Microservices', 'Java', 'React', 'Spring Boot', 'ServiceNow'],
     },
     {
       id: 'exp-hypercube',
@@ -230,7 +231,7 @@ export const PORTFOLIO_DATA: PortfolioContent = {
       icon: Briefcase,
       title: 'Software developer - Part Time',
       organization: 'HyperCube Labs',
-      date: '2023',
+      date: '2023 June - 2024 August',
       description: 'Built full-stack web applications and contributed to product development. Gained hands-on experience in modern web technologies and agile development practices.',
       color: 'green',
       tags: ['Full Stack', 'Web Development', 'Agile'],

@@ -121,7 +121,8 @@ export const About: React.FC = () => {
               
               <div className="relative w-full h-full rounded-2xl overflow-hidden border-2 border-slate-800 shadow-2xl">
                 <Image
-                  src="/images/about/about-me.jpeg"
+                  // src="/images/about/about-me.jpeg"
+                  src="/images/about/profile2.jpg"
                   alt={`${profile.name} - About`}
                   fill
                   className="object-cover"
