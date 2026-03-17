@@ -113,7 +113,7 @@ export const PORTFOLIO_DATA: PortfolioContent = {
     email: 'vishwanibhagya2002@gmail.com',
     // avatar: '/images/about/about-me.jpeg',
     avatar: '/images/about/profile1.jpg',
-    resume: '/resume/Vishwani-Bhagya-Resume.pdf',
+    resume: '/resume/Vishwani_CV.pdf',
     socials: [
       {
         platform: 'GitHub',
