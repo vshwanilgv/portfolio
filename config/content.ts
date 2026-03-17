@@ -353,9 +353,9 @@ export const PORTFOLIO_DATA: PortfolioContent = {
         database: ['PostgreSQL'],
         tools: ['Docker', 'Nginx', 'GitHub Actions', 'AWS', 'NPM'],
       },
-      architectureDiagrams: {
-        system: '/images/projects/datacanvas/system-architecture.png',
-      },
+      // architectureDiagrams: {
+      //   system: '/images/projects/datacanvas/system-architecture.png',
+      // },
       categories: ['Full Stack', 'IoT', 'Web'],
       featured: true,
       year: '2024 - 2026',
