@@ -114,7 +114,7 @@ export const About: React.FC = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="relative sticky top-32"
+            className="sticky top-32"
           >
             <div className="relative aspect-[3/4] w-full">
               <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 via-cyan-500/20 to-transparent rounded-2xl blur-2xl" />
