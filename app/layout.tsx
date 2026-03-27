@@ -25,6 +25,10 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
+
+      </head>
+
+      <body className="antialiased">
         <Script id="clarity" strategy="afterInteractive">
           {`
             (function(c,l,a,r,i,t,y){
@@ -34,9 +38,6 @@ export default function RootLayout({
             })(window, document, "clarity", "script", "w28bzdqy47");
           `}
         </Script>
-      </head>
-
-      <body className="antialiased">
         <Navbar />
         <main>{children}</main>
         <Footer />
