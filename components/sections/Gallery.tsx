@@ -32,39 +32,39 @@ const GALLERY_PHOTOS: GalleryPhoto[] = [
   },
   {
     id: 'photo-4',
-    src: '/images/gallery/gallery-4.jpeg',
-    alt: 'Gallery photo 4',
-    caption: 'Best Affinity Group Project Award for Hackelite2.0- IEEE WIE',
-  },
-  {
-    id: 'photo-5',
-    src: '/images/gallery/gallery-5.jpeg',
-    alt: 'Gallery photo 5',
-    caption: 'Codesprint - Finalist',
-  },
-  {
-    id: 'photo-6',
-    src: '/images/gallery/gallery-6.webp',
-    alt: 'Gallery photo 6',
-    caption: 'Robotics Workshop Conducted by IES Labs UoM - Matara Rahuala',
-  },
-  {
-    id: 'photo-7',
     src: '/images/gallery/gallery-7.jpg',
-    alt: 'Gallery photo 7',
+    alt: 'Gallery photo 4',
     caption: 'IEEE WIE Annual General Meeting 2026 and Awards Ceremony',
   },
   {
-    id: 'photo-8',
+    id: 'photo-5',
     src: '/images/gallery/gallery-8.jpg',
-    alt: 'Gallery photo 8',
+    alt: 'Gallery photo 5',
     caption: 'ICIPRoP 2026 - International Conference on Image Processing and Pattern Recognition',
   },
   {
-    id: 'photo-9',
+    id: 'photo-6',
     src: '/images/gallery/gallery-9.jpg',
-    alt: 'Gallery photo 9',
+    alt: 'Gallery photo 6',
     caption: 'ICIPRoP 2026 - International Conference on Image Processing and Pattern Recognition',
+  },
+  {
+    id: 'photo-7',
+    src: '/images/gallery/gallery-4.jpeg',
+    alt: 'Gallery photo 7',
+    caption: 'Best Affinity Group Project Award for Hackelite2.0- IEEE WIE',
+  },
+  {
+    id: 'photo-8',
+    src: '/images/gallery/gallery-5.jpeg',
+    alt: 'Gallery photo 8',
+    caption: 'Codesprint - Finalist',
+  },
+  {
+    id: 'photo-9',
+    src: '/images/gallery/gallery-6.webp',
+    alt: 'Gallery photo 4',
+    caption: 'Robotics Workshop Conducted by IES Labs UoM - Matara Rahuala',
   }
 ];
 

@@ -73,7 +73,7 @@ export const About: React.FC = () => {
               </h2>
               <p className="text-lg text-slate-300 leading-relaxed font-light">
                 Beyond my technical pursuits, I'm passionate about <span className="text-yellow-400 font-semibold">community 
-                building and mentorship</span>. As the <span className="text-yellow-400 font-semibold">Chairperson of IEEE WIE 
+                building and mentorship</span>. As the <span className="text-yellow-400 font-semibold">Chairwoman of IEEE WIE 
                 Affinity Group</span>, I lead initiatives to empower women in engineering and create inclusive tech communities. 
                 I'm always eager to collaborate, learn, and contribute to innovative projects that push the boundaries of what's possible .
               </p>
