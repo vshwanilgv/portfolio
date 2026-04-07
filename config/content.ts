@@ -523,8 +523,8 @@ export const PORTFOLIO_DATA: PortfolioContent = {
       image: '/images/projects/rgb-ir/images.jpeg',
       color: 'cyan',
       screenshots: [
-        '/images/projects/rgb-ir/PBL_REPO(1).png',
-        '/images/projects/rgb-ir/PBL_REPO(2).png',
+        '/images/projects/rgb-ir/PBL_REPO (1).png',
+        '/images/projects/rgb-ir/PBL_REPO (2).png',
       ],
     },
     {
