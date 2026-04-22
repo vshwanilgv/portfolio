@@ -46,8 +46,7 @@ export const About: React.FC = () => {
                 Who I Am
               </h2>
               <p className="text-lg text-slate-300 leading-relaxed font-light">
-                I'm a passionate software engineer and researcher currently pursuing my final year 
-                at the <span className="text-blue-400 font-semibold">Faculty of Information Technology, 
+                Final year Software Engineering undergraduate at the <span className="text-blue-400 font-semibold">Faculty of Information Technology, 
                 University of Moratuwa</span>. My journey in technology spans over <span className="text-blue-400 font-semibold">4 years 
                 of programming experience</span>, with a deep focus on building impactful solutions that bridge 
                 the gap between innovation and real-world applications.
