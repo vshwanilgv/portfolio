@@ -196,6 +196,7 @@ export default function SyscoLabsPage() {
               </Link>
             )}
           </div>
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
