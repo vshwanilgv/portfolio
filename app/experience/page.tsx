@@ -1,6 +1,7 @@
 import React from 'react';
 import { getJourneyByType } from '@/config/content';
-import { Briefcase, Users } from 'lucide-react';
+import Link from 'next/link';
+import { Briefcase, Users, ArrowRight } from 'lucide-react';
 
 export const metadata = {
   title: 'Experience | Vishwani Bhagya',
@@ -67,7 +68,7 @@ export default function ExperiencePage() {
 
                     {/* Tags */}
                     {item.tags && item.tags.length > 0 && (
-                      <div className="flex flex-wrap gap-2">
+                      <div className="flex flex-wrap gap-2 mb-4">
                         {item.tags.map((tag) => (
                           <span
                             key={tag}
@@ -77,6 +78,24 @@ export default function ExperiencePage() {
                           </span>
                         ))}
                       </div>
+                    )}
+
+                    {/* View Details Link */}
+                    {item.id === 'exp-sysco' && (
+                      <Link
+                        href="/experience/sysco-labs"
+                        className="inline-flex items-center gap-2 text-green-400 hover:text-green-300 text-sm font-semibold transition-colors"
+                      >
+                        See Full Details <ArrowRight size={16} />
+                      </Link>
+                    )}
+                    {item.id === 'exp-hypercube' && (
+                      <Link
+                        href="/experience/hypercube-labs"
+                        className="inline-flex items-center gap-2 text-green-400 hover:text-green-300 text-sm font-semibold transition-colors"
+                      >
+                        See Full Details <ArrowRight size={16} />
+                      </Link>
                     )}
                   </div>
                 </div>

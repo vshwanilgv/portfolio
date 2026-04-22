@@ -37,6 +37,7 @@ export interface JourneyItem {
   organization: string;
   date: string;
   description: string;
+  details?: string[];
   color: AccentColor;
   tags?: string[];
 }
@@ -233,7 +234,13 @@ export const PORTFOLIO_DATA: PortfolioContent = {
       title: 'Software Engineer Intern',
       organization: 'Sysco Labs Sri Lanka',
       date: '2025 May - 2025 Aug',
-      description: 'Developed scalable microservices and worked on enterprise-level applications using modern tech stacks. Contributed to improving system performance and reliability.',
+      description: 'Contributed to enterprise-grade product engineering by developing scalable backend services, improving internal workflows, and shipping production-ready features in a fast-paced agile environment.',
+      details: [
+        'Implemented and enhanced microservice endpoints with Spring Boot to support high-volume business operations.',
+        'Built and refined ServiceNow solutions to automate internal workflows and improve operational efficiency.',
+        'Collaborated across QA, product, and engineering teams to deliver features through sprint-based development.',
+        'Participated in code reviews, defect triage, and release readiness activities to maintain software quality.',
+      ],
       color: 'green',
       tags: ['Microservices', 'Java', 'React', 'Spring Boot', 'ServiceNow'],
     },
@@ -244,7 +251,13 @@ export const PORTFOLIO_DATA: PortfolioContent = {
       title: 'Software developer - Part Time',
       organization: 'HyperCube Labs',
       date: '2023 June - 2024 August',
-      description: 'Built full-stack web applications and contributed to product development. Gained hands-on experience in modern web technologies and agile development practices.',
+      description: 'Developed end-to-end web product features and contributed to iterative product releases, focusing on performant frontends, reliable APIs, and maintainable codebases.',
+      details: [
+        'Designed and implemented UI features with React and TypeScript based on evolving product requirements.',
+        'Developed and integrated backend APIs for data-driven workflows and user-facing functionality.',
+        'Improved responsiveness and usability across desktop and mobile interfaces for key user journeys.',
+        'Worked closely with stakeholders to translate business ideas into incremental technical deliverables.',
+      ],
       color: 'green',
       tags: ['Full Stack', 'Web Development', 'Agile'],
     },
