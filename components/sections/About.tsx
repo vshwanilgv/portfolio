@@ -41,42 +41,54 @@ export const About: React.FC = () => {
             className="lg:col-span-2 space-y-8"
           >
 
-            <div className="space-y-6">
-              <h2 className="text-2xl font-semibold text-slate-100">
-                Who I Am
-              </h2>
-              <p className="text-lg text-slate-300 leading-relaxed font-light">
-                Final year Software Engineering undergraduate at the <span className="text-blue-400 font-semibold">Faculty of Information Technology, 
-                University of Moratuwa</span>. My journey in technology spans over <span className="text-blue-400 font-semibold">4 years 
-                of programming experience</span>, with a deep focus on building impactful solutions that bridge 
-                the gap between innovation and real-world applications.
-              </p>
-            </div>
+          <div className="space-y-8">
+        <div className="space-y-6">
+          <h2 className="text-2xl font-semibold text-slate-100">
+            Who I Am
+          </h2>
+          <p className="text-lg text-slate-300 leading-relaxed font-light">
+            I am a Final Year Software Engineering student at the <span className="text-blue-400 font-semibold">University of Moratuwa</span> with 4 years of experience building across the technical spectrum, dedicated to <span className="text-blue-400 font-semibold">building impactful solutions that bridge the gap between innovation and real world applications.</span> From architecting full-stack systems to researching AI driven robotics, I focus on turning complex academic concepts into tangible, scalable tools.
+          </p>
+        </div>
 
-            <div className="space-y-6">
-              <h2 className="text-2xl font-semibold text-slate-100">
-                My Expertise
-              </h2>
-              <p className="text-lg text-slate-300 leading-relaxed font-light">
-                My core expertise lies in <span className="text-cyan-400 font-semibold">Full Stack Development 
-                and Artificial Intelligence</span>, where I've had the privilege of working on cutting-edge projects. 
-                These range from <span className="text-cyan-400 font-semibold">IoT data platforms</span> to 
-                <span className="text-cyan-400 font-semibold"> Vision-Language-Action models</span> for autonomous 
-                robotics. I'm deeply committed to solving complex problems through elegant, scalable solutions.
-              </p>
-            </div>
+        <div className="space-y-6">
+          <h2 className="text-2xl font-semibold text-slate-100">
+            What I Work On
+          </h2>
+          <div className="text-lg text-slate-300 leading-relaxed font-light space-y-5">
+            <p>
+              My technical foundation is built on <span className="text-cyan-400 font-semibold">Full Stack Development, AI, and Machine Learning</span>. I don't just build interfaces; I engineer intelligent, end to end ecosystems that solve practical problems.
+            </p>
+            
+            <div className="space-y-4 pl-4 md:pl-6 border-l border-slate-800/60">
+              <div>
+                <span className="text-cyan-400 font-semibold block mb-1">AI & Robotics:</span> 
+                I have worked extensively with <span className="text-white">RAG, LLMs, and AI Agents</span> to build autonomous systems. This includes developing a <span className="text-white">Hierarchical Vision Language Action (VLA) framework</span> for robotics (presented at <span className="italic text-slate-400">ICIPRoP 2026</span>), engineering UAV navigation systems via Reinforcement Learning, and building predictive maintenance systems that forestall failures through data driven insights.
+              </div>
 
-            <div className="space-y-6">
-              <h2 className="text-2xl font-semibold text-slate-100">
-                Beyond Code
-              </h2>
-              <p className="text-lg text-slate-300 leading-relaxed font-light">
-                Beyond my technical pursuits, I'm passionate about <span className="text-yellow-400 font-semibold">community 
-                building and mentorship</span>. As the <span className="text-yellow-400 font-semibold">Chairwoman of IEEE WIE 
-                Affinity Group</span>, I lead initiatives to empower women in engineering and create inclusive tech communities. 
-                I'm always eager to collaborate, learn, and contribute to innovative projects that push the boundaries of what's possible .
-              </p>
+              <div>
+                <span className="text-cyan-400 font-semibold block mb-1">IoT & Full Stack Systems:</span> 
+                I specialize in building robust, developer centric platforms. I am the creator of <span className="text-white">DataCanvas</span>—a full IoT monitoring platform with a public API and developer tooling that has been live and operational since 2024. My full stack work focuses on creating seamless, high performance architectures that handle real time data at scale.
+              </div>
+
+              <div>
+                <span className="text-cyan-400 font-semibold block mb-1">Enterprise Solutions:</span> 
+                I also have experience in <span className="text-white">ServiceNow Development</span>, leveraging the platform to streamline enterprise workflows and integrate complex business logic into automated, userfriendly digital experiences.
+              </div>
             </div>
+          </div>
+        </div>
+
+        <div className="space-y-6">
+          <h2 className="text-2xl font-semibold text-slate-100">
+            Beyond Code
+          </h2>
+          <p className="text-lg text-slate-300 leading-relaxed font-light">
+            I believe technology is most powerful when it's inclusive. As the <span className="text-yellow-400 font-semibold">Chairwoman of the IEEE WIE Affinity Group</span>, I lead initiatives to empower women in engineering and foster a culture of mentorship. Whether I'm optimizing a neural network or leading a community project, I'm driven by the desire to push boundaries and build for the future.
+          </p>
+        </div>
+      </div>
+ 
 
             <div className="pt-8 border-t border-slate-800 space-y-4">
               <h3 className="text-lg font-semibold text-slate-100">Get in Touch</h3>

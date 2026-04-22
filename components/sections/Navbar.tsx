@@ -18,8 +18,8 @@ export const Navbar: React.FC = () => {
     { href: '/about', label: 'About' },
     { href: '/education', label: 'Education' },
     { href: '/experience', label: 'Experience' },
-    { href: '/awards', label: 'Awards' },
     { href: '/projects', label: 'Projects' },
+    { href: '/awards', label: 'Awards' },
     { href: '/#contact', label: 'Contact' },
   ];
 

@@ -199,7 +199,7 @@ export const PORTFOLIO_DATA: PortfolioContent = {
       title: 'BSc (Hons) in Information Technology',
       organization: 'University of Moratuwa',
       date: '2022 - 2026',
-      description: 'Specializing in Software Engineering with focus on AI, distributed systems, and full-stack development. Consistent academic excellence with Dean\'s List recognition for semester 3.',
+      description: 'Specializing in Software Engineering with focus on Software Engineering, AI, IoT, Embedded System, Computer Networking, Cloud Computing, and full-stack development. Consistent academic excellence with Dean\'s List recognition.',
       color: 'blue',
       tags: ['Software Engineering', 'AI', 'ML','Computer Vision', 'IoT'],
     },
@@ -210,7 +210,7 @@ export const PORTFOLIO_DATA: PortfolioContent = {
       title: 'Research Exchange Program',
       organization: 'Shibaura Institute of Technology, Japan',
       date: '2025',
-      description: 'Conducted advanced research autonomous robotics systems in Robotics and Image Processing Lab. Collaborated with international researchers on cutting-edge AI applications.',
+      description: 'Conducted advanced research autonomous robotics systems in Robotics and Image Processing Lab at Shibaura Institute of Technology, Tokyo, Japan. Collaborated with international researchers on cutting-edge AI applications.',
       color: 'blue',
       tags: ['Research', 'Robotics', 'Machine Learning', 'Computer Vision', 'UAV Navigation', 'Reinforcement Learning'],
     },
@@ -782,7 +782,7 @@ export const PORTFOLIO_DATA: PortfolioContent = {
   awards: [
     {
       id: 'award-huawei-2025',
-      title: 'Huawei ICT Competition Sri Lanka 2025',
+      title: 'Huawei ICT Competition - Asia Pacific - 2025',
       description: 'Representing Team KernelPanic, we won the Grand Prize in the Huawei Developer Competition Asia Pacific 2024 - Student Track. After three intense rounds, we advanced as one of the top nine finalist teams in the Asia-Pacific region and clinched the championship title at the grand finals held at Chulalongkorn University in Bangkok, Thailand, where our solution, AirSense, stood out as an impactful innovation.',
       awardType: 'Champion',
       year: 2025,
