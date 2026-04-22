@@ -6,12 +6,19 @@ import Link from 'next/link';
 import { ProjectCard } from '@/components/ui';
 import { getProjectShowcaseSections, Project } from '@/config/content';
 
-export const ProjectsGrid: React.FC = () => {
+interface ProjectsGridProps {
+  sectionIds?: string[];
+}
+
+export const ProjectsGrid: React.FC<ProjectsGridProps> = ({ sectionIds }) => {
   const showcaseSections = getProjectShowcaseSections();
+  const filteredSections = sectionIds
+    ? showcaseSections.filter((section) => sectionIds.includes(section.id))
+    : showcaseSections;
   const FEATURED_SECTION_ID = 'featured-projects';
   const usedNonFeaturedSlugs = new Set<string>();
 
-  const uniqueShowcaseSections = showcaseSections.map((section) => ({
+  const uniqueShowcaseSections = filteredSections.map((section) => ({
     ...section,
     projects: section.projects.filter((project) => {
       if (section.id === FEATURED_SECTION_ID) {

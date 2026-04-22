@@ -1,5 +1,5 @@
 import React from 'react';
-import { Hero, StatsBar, CTA, Gallery} from '@/components/sections';
+import { Hero, StatsBar, CTA, Gallery, ProjectsGrid } from '@/components/sections';
 
 export default function HomePage() {
   return (
@@ -14,7 +14,11 @@ export default function HomePage() {
       
       <section id="gallery">
         <Gallery />
-      </section>    
+      </section>
+
+      <section id="featured-projects">
+        <ProjectsGrid sectionIds={['featured-projects']} />
+      </section>
 
       <section id="contact">
         <CTA />

@@ -37,6 +37,7 @@ export interface JourneyItem {
   organization: string;
   date: string;
   description: string;
+  details?: string[];
   color: AccentColor;
   tags?: string[];
 }
@@ -95,12 +96,24 @@ export interface ProjectShowcaseSection {
   projectSlugs: string[];
 }
 
+export type AwardType = 'Champion' | '1st Runner Up' | '2nd Runner Up' | 'Winner' | 'Finalist';
+
+export interface AwardItem {
+  id: string;
+  title: string;
+  description: string;
+  awardType: AwardType;
+  images: string[];
+  year?: number | string;
+}
+
 export interface PortfolioContent {
   profile: Profile;
   stats: Stat[];
   journey: JourneyItem[];
   projects: Project[];
   projectShowcaseSections: ProjectShowcaseSection[];
+  awards: AwardItem[];
 }
 
 export const PORTFOLIO_DATA: PortfolioContent = {
@@ -187,7 +200,7 @@ export const PORTFOLIO_DATA: PortfolioContent = {
       title: 'BSc (Hons) in Information Technology',
       organization: 'University of Moratuwa',
       date: '2022 - 2026',
-      description: 'Specializing in Software Engineering with focus on AI, distributed systems, and full-stack development. Consistent academic excellence with Dean\'s List recognition for semester 3.',
+      description: 'Specializing in Software Engineering with focus on Software Engineering, AI, IoT, Embedded System, Computer Networking, Cloud Computing, and full-stack development. Consistent academic excellence with Dean\'s List recognition.',
       color: 'blue',
       tags: ['Software Engineering', 'AI', 'ML','Computer Vision', 'IoT'],
     },
@@ -198,7 +211,7 @@ export const PORTFOLIO_DATA: PortfolioContent = {
       title: 'Research Exchange Program',
       organization: 'Shibaura Institute of Technology, Japan',
       date: '2025',
-      description: 'Conducted advanced research autonomous robotics systems in Robotics and Image Processing Lab. Collaborated with international researchers on cutting-edge AI applications.',
+      description: 'Conducted advanced research autonomous robotics systems in Robotics and Image Processing Lab at Shibaura Institute of Technology, Tokyo, Japan. Collaborated with international researchers on cutting-edge AI applications.',
       color: 'blue',
       tags: ['Research', 'Robotics', 'Machine Learning', 'Computer Vision', 'UAV Navigation', 'Reinforcement Learning'],
     },
@@ -221,7 +234,13 @@ export const PORTFOLIO_DATA: PortfolioContent = {
       title: 'Software Engineer Intern',
       organization: 'Sysco Labs Sri Lanka',
       date: '2025 May - 2025 Aug',
-      description: 'Developed scalable microservices and worked on enterprise-level applications using modern tech stacks. Contributed to improving system performance and reliability.',
+      description: 'Contributed to enterprise-grade product engineering by developing scalable backend services, improving internal workflows, and shipping production-ready features in a fast-paced agile environment.',
+      details: [
+        'Implemented and enhanced microservice endpoints with Spring Boot to support high-volume business operations.',
+        'Built and refined ServiceNow solutions to automate internal workflows and improve operational efficiency.',
+        'Collaborated across QA, product, and engineering teams to deliver features through sprint-based development.',
+        'Participated in code reviews, defect triage, and release readiness activities to maintain software quality.',
+      ],
       color: 'green',
       tags: ['Microservices', 'Java', 'React', 'Spring Boot', 'ServiceNow'],
     },
@@ -232,7 +251,13 @@ export const PORTFOLIO_DATA: PortfolioContent = {
       title: 'Software developer - Part Time',
       organization: 'HyperCube Labs',
       date: '2023 June - 2024 August',
-      description: 'Built full-stack web applications and contributed to product development. Gained hands-on experience in modern web technologies and agile development practices.',
+      description: 'Developed end-to-end web product features and contributed to iterative product releases, focusing on performant frontends, reliable APIs, and maintainable codebases.',
+      details: [
+        'Designed and implemented UI features with React and TypeScript based on evolving product requirements.',
+        'Developed and integrated backend APIs for data-driven workflows and user-facing functionality.',
+        'Improved responsiveness and usability across desktop and mobile interfaces for key user journeys.',
+        'Worked closely with stakeholders to translate business ideas into incremental technical deliverables.',
+      ],
       color: 'green',
       tags: ['Full Stack', 'Web Development', 'Agile'],
     },
@@ -767,6 +792,37 @@ export const PORTFOLIO_DATA: PortfolioContent = {
       projectSlugs: ['food-store-web-app', 'datacanvas', 'ieee-wie-membership', 'kiti-iwm', 'ieee-wie-website', 'ies-labs-website'],
     },
   ],
+  awards: [
+    {
+      id: 'award-huawei-2025',
+      title: 'Huawei ICT Competition - Asia Pacific - 2025',
+      description: 'Representing Team KernelPanic, we won the Grand Prize in the Huawei Developer Competition Asia Pacific 2024 - Student Track. After three intense rounds, we advanced as one of the top nine finalist teams in the Asia-Pacific region and clinched the championship title at the grand finals held at Chulalongkorn University in Bangkok, Thailand, where our solution, AirSense, stood out as an impactful innovation.',
+      awardType: 'Champion',
+      year: 2025,
+      images: ['/images/awards/huawei-ict-competition-2025.jpeg'],
+    },
+    {
+      id: 'award-hackx',
+      title: 'HackX Innovation Challenge',
+      description: 'From 200 incredible proposals, we were selected as one of the 15 finalists and proudly stood out as the 1st runner-up. Our product, Air Sense, is an innovative solution that facilitates air quality monitoring through visualizations and analytics, addressing the critical issue of air quality decline in industrial workplaces.',
+      awardType: '1st Runner Up',
+      images: ['/images/awards/hackx-innovation-challenge.jpg'],
+    },
+    {
+      id: 'award-evolve',
+      title: 'Evolve 2.0 - Organized by Kelaniya University Sri Lanka',
+      description: 'Awarded for delivering Firewatch IoT, a high-impact wildfire detection and alerting system based on mesh networks and sensor fusion, demonstrating innovation and technical excellence in addressing real-world challenges.',
+      awardType: '2nd Runner Up',
+      images: ['/images/awards/evolve.jpg'],
+    },
+    {
+      id: 'award-codesprint',
+      title: 'Codesprint',
+      description: 'Developed DataCanvas, an open-source IoT monitoring platform which enables real-time data ingestion using MQTT, centralized device and sensor management for IoT developers.',
+      awardType: 'Finalist',
+      images: ['/images/awards/codesprint-finalist.jpeg'],
+    },
+  ],
 };
 
 export const getJourneyByType = (type: JourneyType): JourneyItem[] => {
@@ -789,4 +845,8 @@ export const getProjectShowcaseSections = (): Array<ProjectShowcaseSection & { p
 
 export const getProjectBySlug = (slug: string): Project | undefined => {
   return PORTFOLIO_DATA.projects.find((project) => project.slug === slug);
+};
+
+export const getAllAwards = (): AwardItem[] => {
+  return PORTFOLIO_DATA.awards;
 };
