@@ -95,12 +95,24 @@ export interface ProjectShowcaseSection {
   projectSlugs: string[];
 }
 
+export type AwardType = 'Champion' | '1st Runner Up' | '2nd Runner Up' | 'Winner' | 'Finalist';
+
+export interface AwardItem {
+  id: string;
+  title: string;
+  description: string;
+  awardType: AwardType;
+  images: string[];
+  year?: number | string;
+}
+
 export interface PortfolioContent {
   profile: Profile;
   stats: Stat[];
   journey: JourneyItem[];
   projects: Project[];
   projectShowcaseSections: ProjectShowcaseSection[];
+  awards: AwardItem[];
 }
 
 export const PORTFOLIO_DATA: PortfolioContent = {
@@ -767,6 +779,37 @@ export const PORTFOLIO_DATA: PortfolioContent = {
       projectSlugs: ['food-store-web-app', 'datacanvas', 'ieee-wie-membership', 'kiti-iwm', 'ieee-wie-website', 'ies-labs-website'],
     },
   ],
+  awards: [
+    {
+      id: 'award-huawei-2025',
+      title: 'Huawei ICT Competition Sri Lanka 2025',
+      description: 'Representing Team KernelPanic, we won the Grand Prize in the Huawei Developer Competition Asia Pacific 2024 - Student Track. After three intense rounds, we advanced as one of the top nine finalist teams in the Asia-Pacific region and clinched the championship title at the grand finals held at Chulalongkorn University in Bangkok, Thailand, where our solution, AirSense, stood out as an impactful innovation.',
+      awardType: 'Champion',
+      year: 2025,
+      images: ['/images/awards/huawei-ict-competition-2025.jpeg'],
+    },
+    {
+      id: 'award-hackx',
+      title: 'HackX Innovation Challenge',
+      description: 'From 200 incredible proposals, we were selected as one of the 15 finalists and proudly stood out as the 1st runner-up. Our product, Air Sense, is an innovative solution that facilitates air quality monitoring through visualizations and analytics, addressing the critical issue of air quality decline in industrial workplaces.',
+      awardType: '1st Runner Up',
+      images: ['/images/awards/hackx-innovation-challenge.jpg'],
+    },
+    {
+      id: 'award-evolve',
+      title: 'Evolve 2.0 - Organized by Kelaniya University Sri Lanka',
+      description: 'Awarded for delivering Firewatch IoT, a high-impact wildfire detection and alerting system based on mesh networks and sensor fusion, demonstrating innovation and technical excellence in addressing real-world challenges.',
+      awardType: '2nd Runner Up',
+      images: ['/images/awards/evolve.jpg'],
+    },
+    {
+      id: 'award-codesprint',
+      title: 'Codesprint',
+      description: 'Developed DataCanvas, an open-source IoT monitoring platform which enables real-time data ingestion using MQTT, centralized device and sensor management for IoT developers.',
+      awardType: 'Finalist',
+      images: ['/images/awards/codesprint-finalist.jpeg'],
+    },
+  ],
 };
 
 export const getJourneyByType = (type: JourneyType): JourneyItem[] => {
@@ -789,4 +832,8 @@ export const getProjectShowcaseSections = (): Array<ProjectShowcaseSection & { p
 
 export const getProjectBySlug = (slug: string): Project | undefined => {
   return PORTFOLIO_DATA.projects.find((project) => project.slug === slug);
+};
+
+export const getAllAwards = (): AwardItem[] => {
+  return PORTFOLIO_DATA.awards;
 };
