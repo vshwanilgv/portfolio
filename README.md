@@ -51,7 +51,7 @@ portfolio/
 │   │   ├── Navbar.tsx
 │   │   ├── ProjectsGrid.tsx
 │   │   └── StatsBar.tsx
-│   └── ui/                 # Reusable UI components
+│   └── ui/                 # Reusable UI components 
 │       ├── Badge.tsx
 │       ├── Button.tsx
 │       └── ProjectCard.tsx
