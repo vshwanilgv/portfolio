@@ -107,6 +107,17 @@ export interface AwardItem {
   year?: number | string;
 }
 
+export interface PublicationItem {
+  id: string;
+  title: string;
+  abstract: string;
+  authors: string[];
+  publisher: string;
+  publishedAt: string;
+  publicationUrl: string;
+  screenshot?: string;
+}
+
 export interface PortfolioContent {
   profile: Profile;
   stats: Stat[];
@@ -114,6 +125,7 @@ export interface PortfolioContent {
   projects: Project[];
   projectShowcaseSections: ProjectShowcaseSection[];
   awards: AwardItem[];
+  publications: PublicationItem[];
 }
 
 export const PORTFOLIO_DATA: PortfolioContent = {
@@ -823,6 +835,30 @@ export const PORTFOLIO_DATA: PortfolioContent = {
       images: ['/images/awards/codesprint-finalist.jpeg'],
     },
   ],
+  publications: [
+    {
+      id: 'publication-2',
+      title: 'VisualNav : Visually Grounded Natural Language Crawler Robot Navigation',
+      abstract:
+        'The integration of Vision-Language-Action (VLA) models into robotic systems promises to bridge the gap between high-level semantic intent and low-level control. However, deploying these computationally intensive models on resource-constrained mobile platforms while ensuring open-world generalization remains a significant challenge. This paper presents a comparative study of two distinct VLA architectures for natural language-driven navigation on a crawler robot. This work first evaluate a monolithic end-to-end approach, fine-tuning a Large Vision-Language Model to map visual observations directly to control commands. While highly effective in trained scenarios, this method suffers from severe overfitting and fails to generalize to novel objects. To address this issue, this work propose a modular architecture that decouples reasoning and perception using a Small Language Model for intent extraction and an Open-Vocabulary Detector for visual grounding, linked by a lightweight Multi-Layer Perceptron (MLP) control policy. The experiments demonstrate that this modular approach achieves superior zero-shot generalization and lower inference latency compared to the monolithic baseline. These findings suggest that disentangling semantic understanding from control offers a more robust and scalable path for deploying embodied AI on edge devices',
+      authors: ['Lakmina Gamage', 'Haritha Weerathunga', 'Vishwani Geeganage', 'Prof. Chinthaka Premachandra', 'B.H.Sudantha'],
+      publisher: 'IEEE',
+      publishedAt: '2026',
+      publicationUrl: 'https://ieeexplore.ieee.org/document/11497828',
+      screenshot: '/images/publications/gallery-8.jpg',
+    },
+    {
+      id: 'publication-1',
+      title: 'Reinforcement Learning-Based Autonomous UAV Navigation in Indoor Environments Towards Human Detection',
+      abstract:
+        'Unmanned Aerial Vehicles (UAVs) have become indispensable in search and rescue (SAR) missions by enabling rapid aerial reconnaissance in unstructured and GPS denied environments that are inaccessible to ground teams. Conventional autonomous navigation systems typically depend on heavy sensor suites such as LiDAR or reliable GPS signals, which are often impractical for lightweight and low-cost rescue drones operating in cluttered indoor spaces, including partially collapsed buildings in disaster zones. To address this limitation, this paper introduces a cost-effective, fully autonomous UAV navigation framework that leverages Deep Reinforcement Learning (DRL) to replace brittle rule-based decision logic with adaptive policy learning. The framework integrates real-time human detection using a monocular RGB camera and YOLOv8n, and evaluates two DRL strategies for autonomous indoor maneuvering toward detected humans, specifically Deep Q-Network (DQN) and Proximal Policy Optimization (PPO). Simulation results indicate that rule-based navigation shows low generalization to dynamic and unstructured conditions. Although DQN shows limited reliability, the PPO based agent achieves higher navigation success rates and more stable decision policies. The proposed system is further validated through Sim to Real transfer using a DJI Tello drone on indoor flight tasks, demonstrating practical deployment without expensive sensing hardware. The results confirm the feasibility of lightweight, low-cost, vision based autonomous UAV agents capable of adaptive indoor navigation toward detected humans.',
+      authors: ['Vishwani Geeganage', 'Lakmina Gamage', 'Haritha Weerathunga', 'Prof. Chinthaka Premachandra', 'B.H.Sudantha'],
+      publisher: 'IEEE',
+      publishedAt: '2026',
+      publicationUrl: 'https://ieeexplore.ieee.org/document/11497788',
+      screenshot: '/images/publications/IMG_3810.jpg',
+    },
+  ],
 };
 
 export const getJourneyByType = (type: JourneyType): JourneyItem[] => {
@@ -849,4 +885,8 @@ export const getProjectBySlug = (slug: string): Project | undefined => {
 
 export const getAllAwards = (): AwardItem[] => {
   return PORTFOLIO_DATA.awards;
+};
+
+export const getAllPublications = (): PublicationItem[] => {
+  return PORTFOLIO_DATA.publications;
 };
