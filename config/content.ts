@@ -856,7 +856,7 @@ export const PORTFOLIO_DATA: PortfolioContent = {
       publisher: 'IEEE',
       publishedAt: '2026',
       publicationUrl: 'https://ieeexplore.ieee.org/document/11497788',
-      screenshot: '/images/publications/IMG_3810.jpg',
+      screenshot: '/images/publications/rl-paper.png',
     },
   ],
 };
