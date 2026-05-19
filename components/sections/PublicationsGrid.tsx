@@ -67,7 +67,7 @@ export const PublicationsGrid: React.FC<PublicationsGridProps> = ({
       </div>
 
       <motion.div
-        className="grid grid-cols-1 xl:grid-cols-2 gap-8"
+        className="grid grid-cols-1 xl:grid-cols-2 gap-8 max-w-5xl"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
