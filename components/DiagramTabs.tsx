@@ -8,6 +8,7 @@ interface DiagramTabsProps {
     system?: string;
     logical?: string;
     deployment?: string;
+    usecase?: string;
   };
   projectTitle: string;
   colors: {
@@ -21,10 +22,11 @@ export default function DiagramTabs({ architectureDiagrams, projectTitle, colors
   const diagrams = [
     { key: 'logical' as const, label: 'Logical Architecture', path: architectureDiagrams?.logical },
     { key: 'system' as const, label: 'System Architecture', path: architectureDiagrams?.system },
+    { key: 'usecase' as const, label: 'Use Case Diagram', path: architectureDiagrams?.usecase },
     { key: 'deployment' as const, label: 'Deployment Architecture', path: architectureDiagrams?.deployment },
   ].filter(d => d.path);
 
-  const [activeTab, setActiveTab] = useState<'system' | 'logical' | 'deployment'>(
+  const [activeTab, setActiveTab] = useState<'system' | 'logical' | 'deployment' | 'usecase'>(
     diagrams[0]?.key || 'system'
   );
 
@@ -34,7 +36,7 @@ export default function DiagramTabs({ architectureDiagrams, projectTitle, colors
     <section className="mb-16">
       <h2 className="text-3xl font-bold text-slate-100 mb-6 flex items-center gap-3">
         <span className={`w-1 h-8 rounded-full ${colors.bg}`} />
-        Architecture Diagrams
+        Architecture & Use Cases
       </h2>
       
       {/* Tab Navigation */}
