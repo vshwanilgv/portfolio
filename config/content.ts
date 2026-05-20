@@ -51,6 +51,7 @@ export interface TechStack {
 }
 
 export interface ArchitectureDiagrams {
+  usecase?: string;
   system?: string;
   logical?: string;
   deployment?: string;
@@ -322,7 +323,7 @@ export const PORTFOLIO_DATA: PortfolioContent = {
         tools: ['Git', 'Postman', 'VS Code', 'AWS'],
       },
       architectureDiagrams: {
-        system: '/images/projects/food-store/use-case.png',
+        usecase: '/images/projects/food-store/use-case.png',
         logical: '/images/projects/food-store/logical-diagram.png',
         deployment: '/images/projects/food-store/deployment-diagram.png',
       },
@@ -533,7 +534,7 @@ export const PORTFOLIO_DATA: PortfolioContent = {
     huggingFaceUrl: 'vshwanilgv/gemma-3-1b-it-astro-mcqa'
     },
     {
-      id: '7',
+      id: '14',
       slug: 'rgb-ir-fusion',
       title: 'RGB, IR Multi-Modal Fusion',
       architectureDiagrams: {
@@ -741,46 +742,46 @@ export const PORTFOLIO_DATA: PortfolioContent = {
       color: 'cyan',
       hostedUrl:'https://ieslabs.itfac.uom.lk/'
     },
-//  {
-//   id: '14',
-//   slug: 'finsight-rag',
-//   title: 'FinSight — Financial Document Intelligence',
-//   description: 'A production-grade Retrieval-Augmented Generation system that analyses financial reports with GPT-4o, achieving 0.883 overall RAGAs score with perfect context recall, featuring semantic reranking, confidence guards, and real-time streaming.',
-//   overview: 'FinSight is a production-ready RAG system built for financial document analysis. Users upload annual reports, 10-K filings, or earnings releases and ask natural language questions — the system retrieves the most relevant passages, reranks them using a Cohere cross-encoder, and streams cited answers token by token via GPT-4o. Built on a six-layer pipeline covering ingestion, chunking, embedding, retrieval, reranking, and generation, the system was rigorously evaluated using the RAGAs framework achieving 0.992 answer relevancy and 1.000 context recall. A confidence guard refuses to generate when retrieval scores fall below threshold, prioritising accuracy over coverage — critical in financial contexts where a wrong answer is worse than no answer.',
-//   keyFeatures: [
-//     'Six-layer RAG pipeline: ingestion → chunking → embedding → retrieval → reranking → generation',
-//     'Smart chunking with 600-token chunks and 80-token overlap to preserve financial context across boundaries',
-//     'GPT-4o-mini query rewriting converts conversational questions into search-optimised queries before retrieval',
-//     'Cohere cross-encoder reranking over top-15 vector candidates for precision-focused retrieval',
-//     'Confidence guard — refuses generation when top rerank score falls below 0.5 to prevent hallucination',
-//     'Strict citation enforcement — every claim cited with page number inline using GPT-4o',
-//     'RAGAs evaluation suite with golden test set: 0.992 answer relevancy, 1.000 context recall, 0.883 overall',
-//     'Real-time token streaming via FastAPI with NDJSON protocol',
-//     'PDF upload and ingestion endpoint — supports any financial document format',
-//     'Streamlit chat interface with live RAGAs metrics dashboard and source card display',
-//   ],
-//   techStack: {
-//     backend: ['Python', 'FastAPI', 'LangChain', 'GPT-4o', 'Cohere Rerank'],
-//     frontend: ['Streamlit'],
-//     database: ['ChromaDB'],
-//     tools: ['OpenAI Embeddings', 'RAGAs', 'PyPDF', 'Uvicorn'],
-//   },
-//   architectureDiagrams: {
-//     system: '/images/projects/finsight/pipeline-architecture.png',
-//   },
-//   categories: ['AI', 'RAG', 'NLP', 'FinTech'],
-//   featured: true,
-//   year: 2025,
-//   image: '/images/projects/finsight/image1.png',
-//   screenshots: [
-//     '/images/projects/finsight/image1.png',
-//     '/images/projects/finsight/image2.png',
-//     '/images/projects/finsight/image3.png',
-//   ],
-//   color: 'cyan',
-//   githubUrl: 'https://github.com/vshwanilgv/RAG',
-//   mediumArticleUrl: 'https://vshwanilgv.medium.com/beyond-the-knowledge-cutoff-retrieval-augmented-generation-rag-d6e5df0f6bec',
-// },
+ {
+  id: '7',
+  slug: 'finsight-rag',
+  title: 'FinSight - Financial Document Intelligence',
+  description: 'A production-grade Retrieval-Augmented Generation system that analyses financial reports with GPT-4o, achieving 0.883 overall RAGAs score with perfect context recall, featuring semantic reranking, confidence guards, and real-time streaming.',
+  overview: 'FinSight is a production-ready RAG system built for financial document analysis. Users upload annual reports, 10-K filings, or earnings releases and ask natural language questions — the system retrieves the most relevant passages, reranks them using a Cohere cross-encoder, and streams cited answers token by token via GPT-4o. Built on a six-layer pipeline covering ingestion, chunking, embedding, retrieval, reranking, and generation, the system was rigorously evaluated using the RAGAs framework achieving 0.992 answer relevancy and 1.000 context recall. A confidence guard refuses to generate when retrieval scores fall below threshold, prioritising accuracy over coverage — critical in financial contexts where a wrong answer is worse than no answer.',
+  keyFeatures: [
+    'Six-layer RAG pipeline: ingestion → chunking → embedding → retrieval → reranking → generation',
+    'Smart chunking with 600-token chunks and 80-token overlap to preserve financial context across boundaries',
+    'GPT-4o-mini query rewriting converts conversational questions into search-optimised queries before retrieval',
+    'Cohere cross-encoder reranking over top-15 vector candidates for precision-focused retrieval',
+    'Confidence guard — refuses generation when top rerank score falls below 0.5 to prevent hallucination',
+    'Strict citation enforcement — every claim cited with page number inline using GPT-4o',
+    'RAGAs evaluation suite with golden test set: 0.992 answer relevancy, 1.000 context recall, 0.883 overall',
+    'Real-time token streaming via FastAPI with NDJSON protocol',
+    'PDF upload and ingestion endpoint — supports any financial document format',
+    'Streamlit chat interface with live RAGAs metrics dashboard and source card display',
+  ],
+  techStack: {
+    backend: ['Python', 'FastAPI', 'LangChain', 'GPT-4o', 'Cohere Rerank'],
+    frontend: ['Streamlit'],
+    database: ['ChromaDB'],
+    tools: ['OpenAI Embeddings', 'RAGAs', 'PyPDF', 'Uvicorn'],
+  },
+  architectureDiagrams: {
+    system: '/images/projects/finsight/image1.png',
+  },
+  categories: ['AI', 'RAG', 'NLP', 'FinTech'],
+  featured: true,
+  year: 2025,
+  image: '/images/projects/finsight/image5.png',
+  screenshots: [
+    '/images/projects/finsight/image2.png',
+    '/images/projects/finsight/image3.png',
+    '/images/projects/finsight/image4.png',
+  ],
+  color: 'cyan',
+  githubUrl: 'https://github.com/vshwanilgv/RAG',
+  mediumArticleUrl: 'https://vshwanilgv.medium.com/beyond-the-knowledge-cutoff-retrieval-augmented-generation-rag-d6e5df0f6bec',
+},
   ],
   projectShowcaseSections: [
     {
@@ -795,7 +796,7 @@ export const PORTFOLIO_DATA: PortfolioContent = {
       title: 'AI & Machine Learning',
       gradientFrom: 'from-blue-500',
       gradientTo: 'to-cyan-500',
-      projectSlugs: ['gemma-trainer', 'rgb-ir-fusion', 'predictive-maintenance','finsight-rag'],
+      projectSlugs: ['gemma-trainer', 'finsight-rag', 'predictive-maintenance', 'rgb-ir-fusion',],
     },
     {
       id: 'hardware-iot',
