@@ -3,7 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { ArrowRight, Download } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui';
 import { PORTFOLIO_DATA } from '@/config/content';
 
@@ -64,11 +64,13 @@ export const Hero: React.FC = () => {
                 View Projects
               </Button>
             </a>
+            {/*
             <a href={profile.resume} download>
-              <Button variant="secondary" iconLeft={Download}>
+              <Button variant="secondary">
                 Download Resume
               </Button>
             </a>
+            */}
           </motion.div>
 
           <motion.div
