@@ -317,7 +317,7 @@ export const PORTFOLIO_DATA: PortfolioContent = {
         'Independent CI/CD pipelines for each microservice and microfrontend',
       ],
       techStack: {
-        backend: ['Node.js', 'Express', 'Microservices', 'RESTful APIs', 'AWS Cognito'],
+        backend: ['Spring Boot', 'Node.js', 'Express', 'Microservices', 'RESTful APIs', 'AWS Cognito'],
         frontend: ['React', 'JavaScript', 'Single-SPA', 'CSS'],
         database: ['PostgreSQL'],
         tools: ['Git', 'Postman', 'VS Code', 'AWS'],
