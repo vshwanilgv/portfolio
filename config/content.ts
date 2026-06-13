@@ -317,7 +317,7 @@ export const PORTFOLIO_DATA: PortfolioContent = {
         'Independent CI/CD pipelines for each microservice and microfrontend',
       ],
       techStack: {
-        backend: ['Node.js', 'Express', 'Microservices', 'RESTful APIs', 'AWS Cognito'],
+        backend: ['Spring Boot', 'Node.js', 'Express', 'Microservices', 'RESTful APIs', 'AWS Cognito'],
         frontend: ['React', 'JavaScript', 'Single-SPA', 'CSS'],
         database: ['PostgreSQL'],
         tools: ['Git', 'Postman', 'VS Code', 'AWS'],
@@ -485,18 +485,39 @@ export const PORTFOLIO_DATA: PortfolioContent = {
       id: '5',
       slug: 'vla-framework',
       title: 'Hierarchical VLA Framework',
-      description: 'A research project developing hierarchical decision-making systems for robots using Vision-Language-Action models, enabling natural language-guided navigation in complex environments.',
-      overview: 'This project explores the integration of Vision-Language-Action (VLA) models into autonomous robotic systems. The hierarchical framework allows robots to understand complex natural language instructions and translate them into actionable navigation strategies in real-world environments. The system demonstrates significant improvements in task completion rates and adaptability across different robot platforms.',
+      description: 'A hierarchical vision-language navigation framework that separates high-level planning from low-level execution for natural language-guided robot navigation in complex indoor environments.',
+      overview: 'Conventional robotic navigation systems often fail because they rely on rigid goal representations, closed-world assumptions, brittle failure modes, and weak adaptation to dynamic changes during navigation. This project addresses those limitations with a hierarchical Vision-Language-Action (VLA) framework that decouples high-level planning from low-level execution. The high-level planner uses a Vision-Language Model to generate discrete navigation commands from three RGB camera feeds, while the low-level executor uses a reinforcement learning controller with depth-based safety execution on the robot platform. We recorded 200 episodes using live FantasyVLN (Qwen2.5-VL) across HM3D minival scenes. Each episode begins from a random spawn with a goal instruction, and captures 64x64 depth observations, the current VLM command, and the agent position and heading at every step. The low-level controller is a CNN-based PPO policy that conditions on depth input, high-level command context, and learned collision-avoidance patterns. Training was run for 1400 PPO updates, totaling about 2.9 million environment steps, on a single NVIDIA RTX 3090 Ti (24GB VRAM) via RunPod, with each run taking about 11.5 hours of GPU compute time. Ongoing work focuses on fine-tuning Qwen2.5-VL 7B on an object-goal navigation dataset generated on Matterport3D and HM3D using Habitat Simulator, and validating deployment on RunPod RTX 4090 32GB instances.',
       keyFeatures: [
-        'Multi-layered decision architecture for intelligent robot planning',
-        'Integration of computer vision with natural language understanding',
-        'Cross-platform compatibility with different robot systems',
-        'Real-time adaptation to dynamic environments',
-        'Natural language command processing for intuitive control',
+        'Hierarchical architecture that separates high-level planning from low-level execution',
+        'High-level Vision-Language Model planner that generates discrete navigation commands from three RGB camera feeds',
+        'Low-level PPO controller that uses depth observations for safer execution and collision avoidance',
+        '200 recorded FantasyVLN episodes collected across HM3D minival scenes for training and evaluation',
+        'Per-step state logging with 64x64 depth observations, VLM command context, agent position, and heading',
+        'Current high-level planner upgrade to Qwen2.5-VL 7B with Chain-of-Thought reasoning',
+        'Ongoing fine-tuning on object-goal navigation data generated with Habitat Simulator',
       ],
+      phaseBreakdown: {
+        phase1: {
+          title: 'High Level Planner',
+          highlights: [
+            'Uses a Vision-Language Model to produce discrete navigation commands from three RGB camera feeds',
+            'Upgraded from an instruct model variant to a Chain-of-Thought vision-language model for stronger reasoning',
+            'Moved from smaller 2B/4B models to a 7B parameter model for improved planning quality',
+          ],
+        },
+        phase2: {
+          title: 'Low Level Executor',
+          highlights: [
+            'CNN-based PPO controller consumes depth camera input and high-level commands',
+            'Trained with rollout length 2048, 2 epochs per update, minibatch size 256, learning rate 5e-5, entropy coefficient 0.05, value coefficient 0.25, GAE lambda 0.95, and PPO clip ratio 0.2',
+            'Trained for 1400 updates and about 2.9 million environment steps on a single RTX 3090 Ti (24GB VRAM)',
+          ],
+        },
+      },
       techStack: {
-        backend: ['Python', 'ROS (Robot Operating System)', 'FastAPI'],
-        tools: ['TensorFlow', 'PyTorch', 'OpenCV', 'Docker', 'Git'],
+        backend: ['Python', 'ROS (Robot Operating System)', 'Habitat Simulator', 'PPO'],
+        frontend: ['Vision-Language Model planning', '3 RGB camera feeds', 'Depth camera execution'],
+        tools: ['Qwen2.5-VL', 'FantasyVLN', 'PyTorch', 'OpenCV', 'RunPod', 'NVIDIA RTX 3090 Ti', 'NVIDIA RTX 4090'],
       },
       architectureDiagrams: {
         system: '/images/projects/vla/architecture.png',
@@ -505,6 +526,10 @@ export const PORTFOLIO_DATA: PortfolioContent = {
       featured: true,
       year: 2026,
       image: '/images/projects/vla/image1.jpeg',
+      screenshots: [
+        '/images/projects/vla/image1.jpeg',
+        '/images/projects/vla/architecture.png',
+      ],
       color: 'blue',
     },
     {
@@ -789,7 +814,7 @@ export const PORTFOLIO_DATA: PortfolioContent = {
       title: 'Featured Projects',
       gradientFrom: 'from-yellow-500',
       gradientTo: 'to-orange-500',
-      projectSlugs: ['food-store-web-app', 'datacanvas', 'predictive-maintenance','autonomous-uav'],
+      projectSlugs: ['food-store-web-app', 'datacanvas', 'predictive-maintenance','autonomous-uav','vla-framework'],
     },
     {
       id: 'ai-machine-learning',
