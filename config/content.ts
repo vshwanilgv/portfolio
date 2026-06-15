@@ -767,6 +767,70 @@ export const PORTFOLIO_DATA: PortfolioContent = {
       color: 'cyan',
       hostedUrl:'https://ieslabs.itfac.uom.lk/'
     },
+   {
+  id: '15',
+  slug: 'itw-computers',
+  title: 'ITW Computers E-Commerce Platform',
+  description: 'A modern e-commerce platform built using a polyglot microservices architecture, leveraging Go, Spring Boot, and Node.js services with a Next.js frontend, automated CI/CD pipelines, and cloud-native deployment practices.',
+  overview: 'ITW Computers is an enterprise-grade e-commerce platform designed around a polyglot microservices architecture. The system demonstrates how different technologies can be combined within a single ecosystem by assigning each service to the language best suited for its workload. As the Full Stack Developer, I was responsible for designing and developing the User Service and Order Service as part of an Enterprise Application Development project. The platform includes dedicated services for product catalog management, order processing, user management, and payment workflows. Communication between services utilizes both REST and gRPC protocols, while an API Gateway provides unified client access. The deployment pipeline is fully automated using GitHub Actions, Docker, and AWS services for scalable and reliable delivery.',
+  keyFeatures: [
+    'Polyglot microservices architecture using Go, Spring Boot, and Node.js',
+    'Next.js frontend with SEO-friendly server-side rendering',
+    'API Gateway pattern for centralized client communication',
+    'User and Order Service development using Spring Boot',
+    'Hybrid REST and gRPC service-to-service communication',
+    'Containerized infrastructure with Docker and Docker Compose',
+    'Automated CI/CD pipelines using GitHub Actions',
+    'AWS-based deployment architecture for scalable environments',
+    'Integrated data ecosystem with PostgreSQL, Supabase, Firebase, and Redis',
+    'High-performance caching and session management using Redis',
+  ],
+  techStack: {
+    backend: [
+      'Spring Boot',
+      'Node.js',
+      'Microservices',
+      'REST APIs',
+      'gRPC'
+    ],
+    frontend: [
+      'Next.js',
+      'React',
+      'TypeScript'
+    ],
+    database: [
+      'PostgreSQL',
+      'Supabase',
+      'Firebase',
+      'Redis'
+    ],
+    tools: [
+      'Docker',
+      'Docker Compose',
+      'GitHub Actions',
+      'AWS',
+      'Git',
+      'Postman'
+    ],
+  },
+  architectureDiagrams: {
+    logical: '/images/projects/itw/System Diagram.webp',
+    deployment: '/images/projects/itw/deployment.webp',
+  },
+  categories: [
+    'Full Stack',
+    'Web',
+    'E-commerce',
+    'Microservices',
+    'Cloud'
+  ],
+  featured: true,
+  year: 2025,
+  image: '/images/projects/itw/System Diagram.webp',
+  color: 'blue',
+  githubUrl: '',
+  mediumArticleUrl: ''
+},
  {
   id: '7',
   slug: 'finsight-rag',
@@ -842,7 +906,7 @@ export const PORTFOLIO_DATA: PortfolioContent = {
       title: 'Software Development',
       gradientFrom: 'from-indigo-500',
       gradientTo: 'to-blue-500',
-      projectSlugs: ['food-store-web-app', 'datacanvas', 'ieee-wie-membership', 'kiti-iwm', 'ieee-wie-website', 'ies-labs-website'],
+      projectSlugs: ['food-store-web-app', 'datacanvas', 'itw-computers', 'ieee-wie-membership', 'kiti-iwm', 'ieee-wie-website', 'ies-labs-website'],
     },
   ],
   awards: [
