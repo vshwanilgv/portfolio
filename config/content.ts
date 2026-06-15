@@ -516,7 +516,7 @@ export const PORTFOLIO_DATA: PortfolioContent = {
       },
       techStack: {
         backend: ['Python', 'ROS (Robot Operating System)', 'Habitat Simulator', 'PPO'],
-        frontend: ['Vision-Language Model planning', '3 RGB camera feeds', 'Depth camera execution'],
+        // other: ['Vision-Language Model planning', '3 RGB camera feeds', 'Depth camera execution'],
         tools: ['Qwen2.5-VL', 'FantasyVLN', 'PyTorch', 'OpenCV', 'RunPod', 'NVIDIA RTX 3090 Ti', 'NVIDIA RTX 4090'],
       },
       architectureDiagrams: {
