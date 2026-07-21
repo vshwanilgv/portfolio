@@ -106,7 +106,7 @@ export const About: React.FC = () => {
                     {profile.email}
                   </a>
                 </div>
-                <div className="flex items-center gap-3">
+                {/* <div className="flex items-center gap-3">
                   <span className="text-blue-400 text-xl">📄</span>
                   <a 
                     href={profile.resume}
@@ -115,7 +115,7 @@ export const About: React.FC = () => {
                   >
                     Download Resume
                   </a>
-                </div>
+                </div> */}
               </div>
             </div>
           </motion.div>
