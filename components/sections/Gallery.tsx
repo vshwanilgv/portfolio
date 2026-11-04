@@ -108,7 +108,7 @@ export const Gallery: React.FC = () => {
           </p>
 
           {/* Gallery Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             {GALLERY_PHOTOS.map((photo, index) => (
               <motion.button
                 key={photo.id}
@@ -118,31 +118,31 @@ export const Gallery: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="group relative aspect-[4/3] rounded-xl overflow-hidden border border-slate-800 hover:border-blue-500/50 transition-all duration-300 text-left cursor-zoom-in"
+                className="group relative overflow-hidden rounded-2xl border border-slate-700/80 bg-slate-900/70 p-2 text-left shadow-lg shadow-slate-950/20 transition-all duration-300 hover:-translate-y-2 hover:border-blue-400/70 hover:shadow-2xl hover:shadow-blue-950/40 cursor-zoom-in"
                 aria-label={`Open ${photo.alt}`}
               >
-                <Image
-                  src={photo.src}
-                  alt={photo.alt}
-                  fill
-                  className="object-cover group-hover:scale-110 transition-transform duration-500"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                />
-
-                {/* Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  {photo.caption && (
-                    <div className="absolute bottom-0 left-0 right-0 p-4">
-                      <p className="text-white font-semibold text-lg">
-                        {photo.caption}
-                      </p>
-                    </div>
-                  )}
+                <div className="relative aspect-[2/1] overflow-hidden rounded-xl border border-slate-800 bg-slate-950">
+                  <Image
+                    src={photo.src}
+                    alt={photo.alt}
+                    fill
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-400/20 via-transparent to-cyan-400/20 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                  <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-slate-950/50 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                 </div>
 
-                <div className="absolute top-3 right-3 p-2 rounded-full bg-black/30 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <ZoomIn className="w-4 h-4 text-white" />
-                </div>
+                {photo.caption && (
+                  <div className="flex min-h-20 items-center justify-between gap-3 px-2 py-4">
+                    <p className="text-sm font-semibold leading-relaxed text-slate-200 transition-colors duration-300 group-hover:text-white">
+                      {photo.caption}
+                    </p>
+                    <span className="shrink-0 rounded-full border border-slate-700 bg-slate-800/80 p-2 text-slate-400 transition-all duration-300 group-hover:border-blue-400/60 group-hover:bg-blue-500/20 group-hover:text-blue-300">
+                      <ZoomIn className="h-4 w-4" />
+                    </span>
+                  </div>
+                )}
               </motion.button>
             ))}
           </div>
