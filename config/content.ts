@@ -133,8 +133,8 @@ export const PORTFOLIO_DATA: PortfolioContent = {
 
   profile: {
     name: 'Vishwani Bhagya Geeganage',
-    role: 'Software Engineering Undergraduate & Researcher',
-    bio: 'Final year undergraduate at Faculty of IT, University of Moratuwa. Passionate about Full Stack Development, AI, and building impactful solutions.',
+    role: 'Software Engineer & Researcher',
+    bio: 'Graduated from Faculty of IT, University of Moratuwa. Passionate about Full Stack Development, AI, and building impactful solutions.',
     location: 'Sri Lanka',
     email: 'vishwanibhagya2002@gmail.com',
     // avatar: '/images/about/about-me.jpeg',
