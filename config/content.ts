@@ -428,6 +428,9 @@ export const PORTFOLIO_DATA: PortfolioContent = {
         'Infrastructure-as-code workflows for repeatable deployments',
         'CI/CD, security, monitoring, and cost optimisation',
       ],
+      architectureDiagrams: {
+        deployment: '/images/projects/cloudmart/cloudmart-arc.png',
+      },
       skills: [
         'Cloud Infrastructure Management',
         'Infrastructure as Code',
