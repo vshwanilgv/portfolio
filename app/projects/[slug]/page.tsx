@@ -177,6 +177,25 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
             </div>
           </section>
 
+          {project.skills && project.skills.length > 0 && (
+            <section className="mb-16">
+              <h2 className="text-3xl font-bold text-slate-100 mb-6 flex items-center gap-3">
+                <span className={`w-1 h-8 rounded-full ${colors.bg}`} />
+                Skills
+              </h2>
+              <div className="flex flex-wrap gap-3">
+                {project.skills.map((skill) => (
+                  <span
+                    key={skill}
+                    className={`px-4 py-2 rounded-full text-sm font-semibold ${colors.bg} ${colors.text} border ${colors.border}`}
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </section>
+          )}
+
           {/* Phase Breakdown */}
           {project.phaseBreakdown && (
             <section className="mb-16">

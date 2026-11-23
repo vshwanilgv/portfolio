@@ -74,6 +74,7 @@ export interface Project {
   description: string;
   overview: string;
   keyFeatures: string[];
+  skills?: string[];
   phaseBreakdown?: PhaseBreakdown;
   techStack: TechStack;
   architectureDiagrams?: ArchitectureDiagrams;
@@ -412,6 +413,44 @@ export const PORTFOLIO_DATA: PortfolioContent = {
       ],
       color: 'green',
       githubUrl:'https://github.com/Datacanvas-IoT'
+    },
+    {
+      id: '14',
+      slug: 'cloudmart',
+      title: 'CloudMart',
+      description: 'A microservices-based e-commerce platform for deploying a distributed application with containerisation, Kubernetes, cloud-managed services, CI/CD, security, monitoring, and cost optimisation.',
+      overview: 'CloudMart is a microservices-based e-commerce platform developed as an academic project for the IS 4630 Cloud Infrastructure Management module at the University of Moratuwa. The system consists of product, order, user, notification, and frontend services. The project focuses on deploying a distributed application in the cloud through containerisation, Kubernetes orchestration, cloud-managed services, CI/CD automation, security, monitoring, and cost optimisation.',
+      keyFeatures: [
+        'Five-service e-commerce microservices platform',
+        'Docker Compose local development environment',
+        'Kubernetes deployments, services, ingress, configuration, secrets, and network policies',
+        'Cloud adapter pattern for managed databases, queues, and email services',
+        'Infrastructure-as-code workflows for repeatable deployments',
+        'CI/CD, security, monitoring, and cost optimisation',
+      ],
+      architectureDiagrams: {
+        deployment: '/images/projects/cloudmart/cloudmart-arc.png',
+      },
+      skills: [
+        'Cloud Infrastructure Management',
+        'Infrastructure as Code',
+        'Microservices',
+        'Containerisation',
+        'Kubernetes',
+        'CI/CD',
+        'Cloud Security',
+      ],
+      techStack: {
+        backend: ['Python', 'Flask', 'Node.js'],
+        frontend: ['React'],
+        tools: ['AWS', 'Terraform', 'Docker', 'Kubernetes'],
+      },
+      categories: ['Full Stack', 'E-commerce', 'Microservices', 'Cloud'],
+      featured: true,
+      year: 2026,
+      image: '/images/projects/cloudmart/cloudmart.jpeg',
+      color: 'blue',
+      githubUrl: 'https://github.com/vshwanilgv/cloud_mart',
     },
     {
       id: '3',
@@ -878,7 +917,7 @@ export const PORTFOLIO_DATA: PortfolioContent = {
       title: 'Featured Projects',
       gradientFrom: 'from-yellow-500',
       gradientTo: 'to-orange-500',
-      projectSlugs: ['food-store-web-app', 'datacanvas', 'predictive-maintenance','autonomous-uav','vla-framework'],
+      projectSlugs: ['food-store-web-app', 'datacanvas', 'cloudmart', 'predictive-maintenance','autonomous-uav','vla-framework'],
     },
     {
       id: 'ai-machine-learning',
@@ -906,7 +945,7 @@ export const PORTFOLIO_DATA: PortfolioContent = {
       title: 'Software Development',
       gradientFrom: 'from-indigo-500',
       gradientTo: 'to-blue-500',
-      projectSlugs: ['food-store-web-app', 'datacanvas', 'itw-computers', 'ieee-wie-membership', 'kiti-iwm', 'ieee-wie-website', 'ies-labs-website'],
+      projectSlugs: ['food-store-web-app', 'datacanvas', 'cloudmart', 'itw-computers', 'ieee-wie-membership', 'kiti-iwm', 'ieee-wie-website', 'ies-labs-website'],
     },
   ],
   awards: [
