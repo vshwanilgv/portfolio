@@ -910,6 +910,49 @@ export const PORTFOLIO_DATA: PortfolioContent = {
   githubUrl: 'https://github.com/vshwanilgv/RAG',
   mediumArticleUrl: 'https://vshwanilgv.medium.com/beyond-the-knowledge-cutoff-retrieval-augmented-generation-rag-d6e5df0f6bec',
 },
+    {
+      id: '16', 
+      slug: 'incident-pilot',
+      title: 'Incident Pilot: AI assisted SRE incident-response system.',
+      description: 'An agentic AI system that automatically investigates Kubernetes incidents, correlates metrics, logs, and traces, and delivers a cited root cause, a remediation plan, and a post-mortem through a web dashboard.',
+      overview: 'Incident Pilot automates incident investigation and root-cause analysis in Kubernetes environments. When an alert fires, a deterministic Observation Gateway ingests it and assembles context from metrics, logs, and traces. A LangGraph multi-agent pipeline running on AWS Bedrock then forms and tests hypotheses, cites the evidence behind its conclusions, and produces a remediation plan and a structured post-mortem. Engineers are notified by email and can review every investigation in a Next.js dashboard. The system is demonstrated against CloudMart, a microservices e-commerce application running on a single-node k3s cluster on AWS EC2. By design it is propose-only: it recommends fixes but never executes them.',
+      keyFeatures: [
+        'Multi-agent investigation pipeline built with LangGraph on AWS Bedrock',
+        'Deterministic Observation Gateway for alert ingestion and context assembly',
+        'Full observability stack: Prometheus/Alertmanager, Loki, Tempo, OpenTelemetry Collector, and Grafana',
+        'Evidence-cited root-cause hypotheses with clickable citations that jump to the supporting evidence',
+        'Propose-only remediation plans with a safe, human-in-the-loop posture',
+        'Automated post-mortem generation with preventive, detection, and process-focused action items',
+        'Email notification of the root cause and remediation for confirmed, actionable hypotheses',
+        'Next.js dashboard with shareable incident URLs, tabbed detail views, and dark mode',
+        '"Actionable now" tracking that surfaces incidents with pending remediation plans',
+        'Test suite of 79 pytest tests using a fake LLM client, with no real network calls',
+        'CI/CD with GitHub Actions deploying to EC2',
+      ],
+      techStack: {
+        backend: ['Python', 'FastAPI', 'LangGraph', 'AWS Bedrock', 'Pydantic', 'OpenTelemetry'], 
+        frontend: ['Next.js', 'TypeScript', 'Tailwind CSS', 'React'],
+        database: ['PostgreSQL'],
+        tools: ['Kubernetes (k3s)', 'Helm', 'Prometheus', 'Grafana', 'Loki', 'Tempo', 'GitHub Actions', 'AWS EC2', 'pytest'],
+      },
+      architectureDiagrams: {
+        system: '/images/projects/incident-pilot/sys-arc.png', 
+      },
+      categories: ['AI', 'Agentic AI', 'DevOps', 'Cloud'],
+      featured: true,
+      year: 2026, 
+      image: '/images/projects/incident-pilot/image1.png', 
+      screenshots: [
+        '/images/projects/incident-pilot/image1.png', 
+        '/images/projects/incident-pilot/image2.png', 
+        '/images/projects/incident-pilot/image3.png',
+        '/images/projects/incident-pilot/prometheus.png',
+        '/images/projects/incident-pilot/node-exporter.png',
+        '/images/projects/incident-pilot/dashboard.png',
+      ],
+      color: 'green', 
+      githubUrl: 'https://github.com/orgs/Incident-Pilot/repositories' 
+    },
   ],
   projectShowcaseSections: [
     {
@@ -924,7 +967,7 @@ export const PORTFOLIO_DATA: PortfolioContent = {
       title: 'AI & Machine Learning',
       gradientFrom: 'from-blue-500',
       gradientTo: 'to-cyan-500',
-      projectSlugs: ['gemma-trainer', 'finsight-rag', 'predictive-maintenance', 'rgb-ir-fusion',],
+      projectSlugs: ['gemma-trainer', 'finsight-rag', 'incident-pilot', 'predictive-maintenance', 'rgb-ir-fusion',],
     },
     {
       id: 'hardware-iot',
